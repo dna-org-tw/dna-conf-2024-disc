@@ -17,7 +17,7 @@ export default function RootLayout({children}: Readonly<{ children: React.ReactN
     />
     <div
       className="relative z-20 h-[100svh] w-screen overflow-hidden bg-gray-3 shadow-2xl sm:h-[672px] sm:w-[402px] md:rounded-lg">
-      <div className="h-full overflow-y-scroll">
+      <div className="h-full overflow-y-auto">
         {children}
       </div>
     </div>
