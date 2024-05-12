@@ -1,4 +1,5 @@
 import ColorfulButton from "./components/ColorfulButton";
+import Footer from "./components/Footer";
 import Figure from "./components/Figure";
 import MessageBubble from "./components/MessageBubble";
 
@@ -10,6 +11,7 @@ export default function Home() {
       <div className="flex w-full justify-center items-center absolute top-[450px]">
         <ColorfulButton href="#">{"START"}</ColorfulButton>
       </div>
+      <Footer />
     </div>
   );
 }
