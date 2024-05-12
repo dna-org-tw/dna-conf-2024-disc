@@ -14,6 +14,14 @@ const config: Config = {
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
       keyframes: {
+        figureMoveUpDown: {
+          "0%, 100%": { transform: "translateY(0)" },
+          "50%": { transform: "translateY(-12px)" },
+        },
+        figureMoveDownUp: {
+          "0%, 100%": { transform: "translateY(-12px)" },
+          "50%": { transform: "translateY(0)" },
+        },
         messageBubbleMoveDownUp: {
           "0%, 100%": { transform: "translateY(0px)" },
           "50%": { transform: "translateY(-8px)" },
