@@ -26,6 +26,24 @@ const config: Config = {
           "0%, 100%": { transform: "translateY(0px)" },
           "50%": { transform: "translateY(-8px)" },
         },
+        weaponFadeInOut: {
+          "0%, 100%": {
+            transform: "translateX(100%)",
+            opacity: "0",
+          },
+          "25%": {
+            transform: "translateX(0)",
+            opacity: "1",
+          },
+          "75%": {
+            transform: "translateX(0)",
+            opacity: "1",
+          },
+          "100%": {
+            transform: "translateX(-100%)",
+            opacity: "0",
+          },
+        },
       },
     },
   },
