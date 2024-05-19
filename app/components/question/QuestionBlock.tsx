@@ -3,6 +3,7 @@ import { Fragment, useState } from "react";
 import questionData from "../../data/questionData.json";
 import QuestionDescription from "./QuestionDescription";
 import QuestionOption from "./QuestionOption";
+import ProgressBlock from "./ProgressBlock";
 
 export default function QuestionBlock() {
   const [chapter, setChapter] = useState(0);
@@ -13,10 +14,17 @@ export default function QuestionBlock() {
     { id: 1, description: "測試選項" },
   ];
   const questionDataLength = 27;
+  const progress = Math.round(((chapter + 1) / questionDataLength) * 100);
 
   function handleNextQuestion() {
     if (chapter + 1 !== questionDataLength) {
       setChapter(chapter + 1);
+    }
+  }
+
+  function handlePreQuestion() {
+    if (chapter !== 0) {
+      setChapter(chapter - 1);
     }
   }
 
@@ -31,6 +39,10 @@ export default function QuestionBlock() {
       className="w-full h-full p-3 bg-white"
     >
       <div className="flex flex-col">
+        <ProgressBlock
+          onLeftArrowClick={handlePreQuestion}
+          progress={progress}
+        />
         <QuestionDescription description={question?.description} />
         {questionOptions.map((option) => (
           <Fragment key={option.id}>
