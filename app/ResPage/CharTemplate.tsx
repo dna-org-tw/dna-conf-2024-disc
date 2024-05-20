@@ -58,7 +58,14 @@ const charInfo = {
     bgSet: bgSet["knight"],
     mainColor: "bg-[#004E9D]",
     borderColor: "border-[#004E9D]",
-    tags: ["獨立", "冷靜", "機智"],
+    // tags: ["獨立", "冷靜", "機智"],
+    tags: [
+      "大武地方創生",
+      "大武地方",
+      "大武",
+      "大武地方創生創生",
+      "大武地方地方",
+    ],
     jobs: ["勞版", "工程屍", "市場策略人猿", "設計猿"],
     desc: "騎士/Steadiness-穩定型喜愛安定、不安於改變，因此有最佳的持續能力，就算是事情有重大變化也會堅守崗位到最後一刻。",
     benifit:
@@ -80,7 +87,14 @@ const charInfo = {
     typeName: "影響型",
     mainColor: "bg-[#C54090]",
     borderColor: "border-[#C54090]",
-    tags: ["獨立", "冷靜", "機智"],
+    // tags: ["獨立", "冷靜", "機智"],
+    tags: [
+      "大武地方創生",
+      "大武地方",
+      "大武",
+      "大武地方創生創生",
+      "大武地方地方",
+    ],
     jobs: ["勞版", "工程屍", "市場策略人猿", "設計猿"],
     desc: "魔法師/Compliance-分析型腦子最精明、善於思考與規劃，很適合作幕僚的工作，像是工程師等行業的人",
     benifit:
@@ -102,7 +116,14 @@ const charInfo = {
     typeName: "影響型",
     mainColor: "bg-[#FFD028]",
     borderColor: "border-[#FFD028]",
-    tags: ["獨立", "冷靜", "機智"],
+    // tags: ["獨立", "冷靜", "機智"],
+    tags: [
+      "大武地方創生",
+      "大武地方",
+      "大武",
+      "大武地方創生創生",
+      "大武地方地方",
+    ],
     jobs: ["勞版", "工程屍", "市場策略人猿", "設計猿"],
     desc: "吟遊詩人/Influence-影響想型愛表現、專注於人際互動、善於運用群眾魅力、富創意，因此很適合從事廣告、企劃、公關等需要到處social協調的工作。",
     benifit:
@@ -175,7 +196,10 @@ const CharTemplate = (props: {
           >
             {CardContentTypeEnum[key as keyof typeof CardContentTypeEnum]}
           </span>
-          <img className={"p-2 w-[95px] h-[95px] object-contain"} src={cardContents[key]} />
+          <img
+            className={"p-2 w-[95px] h-[95px] object-contain"}
+            src={cardContents[key]}
+          />
         </div>
       );
     });

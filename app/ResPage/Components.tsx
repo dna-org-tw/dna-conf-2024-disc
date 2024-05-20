@@ -25,14 +25,6 @@ export const Tag = ({
   );
 };
 
-export const Card = ({
-  title,
-  imgSrc,
-}: {
-  title: string;
-  imgSrc: string;
-}) => {};
-
 export const SocicalMediaBtns = ({ className }: { className: string }) => {
   return (
     <div className={className}>
