@@ -5,7 +5,11 @@ import PlayerBlock from "./PlayerBlock";
 import StoryBlock from "./StoryBlock";
 import WeaponBlock from "./WeaponBlock";
 
-export default function IntroBlock() {
+export default function IntroBlock({
+  onEnterGameClick,
+}: {
+  onEnterGameClick: () => void;
+}) {
   const [name, setName] = useState<string>("");
 
   function handleNameChange(value: string) {
@@ -15,6 +19,7 @@ export default function IntroBlock() {
   function handleEnterGameClick() {
     if (!!name.trim()) {
       localStorage.setItem("playerName", name);
+      onEnterGameClick();
     }
   }
 
