@@ -1,8 +1,6 @@
 "use client";
 import clsx from "clsx";
-import React, { useEffect, useState } from "react";
-import { toPng } from "html-to-image";
-import { useToPng } from "@hugocxl/react-to-image";
+import React from "react";
 
 export const Tag = ({
   content,
@@ -90,19 +88,6 @@ export const SaveImageBtn = ({
   className: string;
   convertMethod: () => void;
 }) => {
-  // const htmlToImageConvert = () => {
-  //   toPng(target, { cacheBust: false, backgroundColor: "white" })
-  //     .then((dataUrl) => {
-  //       const link = document.createElement("a");
-  //       link.download = "my-image-name.png";
-  //       link.href = dataUrl;
-  //       link.click();
-  //     })
-  //     .catch((err) => {
-  //       console.log(err);
-  //     });
-  // };
-
   return (
     <button className={className} onClick={convertMethod}>
       儲存結果圖
