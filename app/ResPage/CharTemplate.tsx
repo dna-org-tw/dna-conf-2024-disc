@@ -56,8 +56,8 @@ const charInfo = {
     weaponImg: "/resPage/weapon_knight.png",
     typeName: "影響型",
     bgSet: bgSet["knight"],
-    mainColor: "bg-[#00993E]",
-    borderColor: "border-[#00993E]",
+    mainColor: "bg-[#004E9D]",
+    borderColor: "border-[#004E9D]",
     tags: ["獨立", "冷靜", "機智"],
     jobs: ["勞版", "工程屍", "市場策略人猿", "設計猿"],
     desc: "騎士/Steadiness-穩定型喜愛安定、不安於改變，因此有最佳的持續能力，就算是事情有重大變化也會堅守崗位到最後一刻。",
@@ -66,7 +66,7 @@ const charInfo = {
     weakness:
       "目標感不強也不擅長做決定，漫不經心外還有些沉默。和無尾熊型的人相處，記得要多鼓勵、督促他，給予他們明確的指令，其實會是很棒的隊友、閨蜜。",
     cardContents: {
-      luckyItem: "",
+      luckyItem: "/resPage/libon.png",
       partner: "/resPage/char_magican.png",
       stranger: "/resPage/char_assassin.png",
     },
@@ -78,8 +78,8 @@ const charInfo = {
     weaponImg: "/resPage/weapon_magican.png",
     bgSet: bgSet["magican"],
     typeName: "影響型",
-    mainColor: "bg-[#10B8D9]",
-    borderColor: "border-[#10B8D9]",
+    mainColor: "bg-[#C54090]",
+    borderColor: "border-[#C54090]",
     tags: ["獨立", "冷靜", "機智"],
     jobs: ["勞版", "工程屍", "市場策略人猿", "設計猿"],
     desc: "魔法師/Compliance-分析型腦子最精明、善於思考與規劃，很適合作幕僚的工作，像是工程師等行業的人",
@@ -88,7 +88,7 @@ const charInfo = {
     weakness:
       "吹毛求疵，做事前一定要先想個計劃，但又容易想太多沒有行動，或是要求過高（太過理想）但難以做到，進而感到強烈的自慚自愧，自然就給旁人悲觀消極、情緒化的印象。",
     cardContents: {
-      luckyItem: "",
+      luckyItem: "/resPage/cup.png",
       partner: "/resPage/char_magican.png",
       stranger: "/resPage/char_assassin.png",
     },
@@ -96,12 +96,12 @@ const charInfo = {
   [CharTypeEnum.吟遊詩人]: {
     charType: "吟遊詩人",
     charImg: "/resPage/char_minstrel.png",
-    charTypeImg: "/resPage/char_minstrel-title.png",
+    charTypeImg: "/resPage/char_minstre-title.png",
     weaponImg: "/resPage/weapon_minstrel.png",
     bgSet: bgSet["minstrel"],
     typeName: "影響型",
-    mainColor: "bg-[#E74310]",
-    borderColor: "border-[#E74310]",
+    mainColor: "bg-[#FFD028]",
+    borderColor: "border-[#FFD028]",
     tags: ["獨立", "冷靜", "機智"],
     jobs: ["勞版", "工程屍", "市場策略人猿", "設計猿"],
     desc: "吟遊詩人/Influence-影響想型愛表現、專注於人際互動、善於運用群眾魅力、富創意，因此很適合從事廣告、企劃、公關等需要到處social協調的工作。",
@@ -110,7 +110,7 @@ const charInfo = {
     weakness:
       "因為熱愛探索新想法，也讓他們容易在工作之間跳來跳去，想一次完成很多事情但礙於專注力不夠而失敗。此外，以自己為世界中心、粗線條、輕許諾、愛打岔又變化無常也是要特別留意的缺點，答應別人但是由於記憶差而忘記，久而久之是會惹人厭煩的唷。",
     cardContents: {
-      luckyItem: "",
+      luckyItem: "/resPage/tag.png",
       partner: "/resPage/char_magican.png",
       stranger: "/resPage/char_assassin.png",
     },
@@ -175,7 +175,7 @@ const CharTemplate = (props: {
           >
             {CardContentTypeEnum[key as keyof typeof CardContentTypeEnum]}
           </span>
-          <img className={"p-2"} src={cardContents[key]} />
+          <img className={"p-2 w-[95px] h-[95px] object-contain"} src={cardContents[key]} />
         </div>
       );
     });
