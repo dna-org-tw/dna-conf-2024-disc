@@ -1,20 +1,15 @@
-// 'use client'
+"use client";
 import React from "react";
-import { PlayAgainBtn, SocicalMediaBtns, Tag, UtilsBtns } from "./Components";
+import {
+  PlayAgainBtn,
+  SaveImageBtn,
+  SocicalMediaBtns,
+  Tag,
+  UtilsBtns,
+} from "./Components";
 import clsx from "clsx";
-
-export enum CharTypeEnum {
-  刺客 = 0,
-  騎士 = 1,
-  魔法師 = 2,
-  吟遊詩人 = 3,
-}
-
-enum CardContentTypeEnum {
-  luckyItem = "幸運小物",
-  partner = "合拍夥伴",
-  stranger = "萍水相逢",
-}
+import { CardContentTypeEnum, CharTypeEnum } from "./types";
+import { useToPng } from "@hugocxl/react-to-image";
 
 // bg-set
 const bgSet = {
@@ -130,6 +125,14 @@ const CharTemplate = (props: {
   const currentCharData = charInfo[charTypeCode];
   const { mainColor, borderColor, desc, cardContents } = currentCharData;
 
+  const [_, convertToPng, ref] = useToPng<HTMLDivElement>({
+    onSuccess: (data) => {
+      const base64Data = data;
+      downloadBase64Image(base64Data, "image.png");
+    },
+    backgroundColor: "white",
+  });
+
   const _getVerticalText = (text: string) => {
     const textEle = text
       .split("")
@@ -178,10 +181,19 @@ const CharTemplate = (props: {
     });
   };
 
+  const downloadBase64Image = (base64Data: any, fileName: any) => {
+    const link = document.createElement("a");
+    link.href = base64Data;
+    link.download = fileName;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
   return (
     <div className="w-full h-full pt-8">
       {/* header section */}
-      <div className="px-8">
+      <div className="px-8 py-4" ref={ref}>
         {/* head block*/}
         <div className="flex items-bottom justify-between mb-4">
           {/* charImg */}
@@ -261,14 +273,13 @@ const CharTemplate = (props: {
       <div className="w-[80%] mx-auto mb-4">
         {/* save res Img */}
         <div className="flex justify-center mb-4">
-          <button
+          <SaveImageBtn
             className={clsx(
               "py-4 px-5 rounded-[30px] text-white font-bold text-lg w-full",
               mainColor
             )}
-          >
-            儲存結果圖
-          </button>
+            convertMethod={convertToPng}
+          />
         </div>
 
         {/* social media btns */}
@@ -280,7 +291,7 @@ const CharTemplate = (props: {
         {/* once again */}
         <PlayAgainBtn className="text-center w-full text-xl font-bold text-[#757575] my-4" />
       </div>
-    
+
       {/* footer Img */}
       <div className="bg-[#0E5A7E] py-8 flex justify-center items-center">
         <img src="/resPage/footerImg.png" alt="" />

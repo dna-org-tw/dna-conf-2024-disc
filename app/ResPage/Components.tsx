@@ -1,6 +1,8 @@
 "use client";
 import clsx from "clsx";
 import React, { useEffect, useState } from "react";
+import { toPng } from "html-to-image";
+import { useToPng } from "@hugocxl/react-to-image";
 
 export const Tag = ({
   content,
@@ -78,9 +80,32 @@ export const UtilsBtns = ({ className }: { className: string }) => {
 };
 
 export const PlayAgainBtn = ({ className }: { className: string }) => {
+  return <button className={className}>再玩一次</button>;
+};
+
+export const SaveImageBtn = ({
+  className,
+  convertMethod,
+}: {
+  className: string;
+  convertMethod: () => void;
+}) => {
+  // const htmlToImageConvert = () => {
+  //   toPng(target, { cacheBust: false, backgroundColor: "white" })
+  //     .then((dataUrl) => {
+  //       const link = document.createElement("a");
+  //       link.download = "my-image-name.png";
+  //       link.href = dataUrl;
+  //       link.click();
+  //     })
+  //     .catch((err) => {
+  //       console.log(err);
+  //     });
+  // };
+
   return (
-    <button className={className} >
-      再玩一次
+    <button className={className} onClick={convertMethod}>
+      儲存結果圖
     </button>
   );
 };
