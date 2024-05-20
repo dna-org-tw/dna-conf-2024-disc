@@ -1,17 +1,29 @@
-import ColorfulButton from "./components/ColorfulButton";
-import Footer from "./components/Footer";
-import Figure from "./components/Figure";
-import MessageBubble from "./components/MessageBubble";
+"use client";
+import { useState } from "react";
+import { CoverBlock } from "./components/cover";
+import { IntroBlock } from "./components/intro";
+import { QuestionBlock } from "./components/question";
+
+export type GameStatus = "" | "intro" | "question";
 
 export default function Home() {
+  const [status, setStatus] = useState<GameStatus>("");
+
+  function handleStartClick() {
+    setStatus("intro");
+  }
+
+  function handleEnterGameClick() {
+    setStatus("question");
+  }
+
   return (
-    <div className="w-full h-full bg-[url('/images/background/bg.png')] bg-no-repeat bg-cover bg-right-top">
-      <MessageBubble />
-      <Figure />
-      <div className="flex w-full justify-center items-center absolute top-[450px]">
-        <ColorfulButton href="#">{"START"}</ColorfulButton>
-      </div>
-      <Footer />
-    </div>
+    <>
+      {status === "" && <CoverBlock onStartClick={handleStartClick} />}
+      {status === "intro" && (
+        <IntroBlock onEnterGameClick={handleEnterGameClick} />
+      )}
+      {status === "question" && <QuestionBlock />}
+    </>
   );
 }
