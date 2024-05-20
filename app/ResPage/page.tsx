@@ -1,8 +1,8 @@
 import React from "react";
-import CharTemplate from "./CharTemplate";
+import CharTemplate, { CharTypeEnum } from "./CharTemplate";
 
 const ResultPage = (props: any) => {
-  return <CharTemplate charTypeCode={0} />;
+  return <CharTemplate charTypeCode={CharTypeEnum.刺客} userName="Test001" />;
 };
 
 export default ResultPage;

@@ -1,4 +1,5 @@
 "use client";
+import clsx from "clsx";
 import React, { useEffect, useState } from "react";
 
 export const Tag = ({
@@ -8,15 +9,18 @@ export const Tag = ({
   content: string;
   bgColor: string;
 }) => {
-  const [color, setColor] = useState("");
+  // const [color, setColor] = useState("");
 
-  useEffect(() => {
-    setColor(bgColor);
-  }, [bgColor]);
+  // useEffect(() => {
+  //   setColor(bgColor);
+  // }, [bgColor]);
 
   return (
     <div
-      className={`px-3 py-1 mx-1 rounded-[16px] text-white bg-[${color}]`}
+      className={clsx(
+        `px-3 py-1 mb-1 rounded-md text-white font-bold`,
+        bgColor
+      )}
     >{`#${content}`}</div>
   );
 };
@@ -29,4 +33,61 @@ export const Card = ({
   imgSrc: string;
 }) => {};
 
-// export default Components
+export const SocicalMediaBtns = ({ className }: { className: string }) => {
+  return (
+    <div className={className}>
+      <img
+        className="w-[48px] h-[48px] hover:cursor-pointer"
+        src="/resPage/line-logo.png"
+        alt="line"
+        onClick={() => {}}
+      />
+      <img
+        className="w-[48px] h-[48px] hover:cursor-pointer"
+        src="/resPage/ig-logo.png"
+        alt="ig"
+        onClick={() => {}}
+      />
+      <img
+        className="w-[48px] h-[48px] hover:cursor-pointer"
+        src="/resPage/fb-logo.png"
+        alt="fb"
+        onClick={() => {}}
+      />
+    </div>
+  );
+};
+
+export const UtilsBtns = ({ className }: { className: string }) => {
+  return (
+    <div className={className}>
+      <img
+        className="hover:cursor-pointer"
+        src="/resPage/checkmore.png"
+        alt="checkmore"
+        onClick={() => {}}
+      />
+      <img
+        className=" hover:cursor-pointer"
+        src="/resPage/backHome.png"
+        alt="backHome"
+        onClick={() => {}}
+      />
+    </div>
+  );
+};
+
+export const PlayAgainBtn = ({ className }: { className: string }) => {
+  return (
+    <button className={className} >
+      再玩一次
+    </button>
+  );
+};
+
+//styleName: Body normal 2_Source Sans 3_Bold_18pt;
+// font-family: Source Sans 3;
+// font-size: 18px;
+// font-weight: 700;
+// line-height: 25.63px;
+// text-align: left;
