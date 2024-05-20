@@ -1,0 +1,22 @@
+[
+  {
+    "description": "組隊即將開始，你站在冒險者公會的大門前\n心中在思考著你會是哪一種冒險者\n思緒逐漸飄遠，過去的你，在其他人眼中是怎麼樣的？",
+    "options": [
+      {
+        "id": 1,
+        "description": "熱情、活潑、有行動力",
+        "nextQuestion": 2
+      },
+      {
+        "id": 2,
+        "description": "忠誠、隨和、容易相處",
+        "nextQuestion": 3
+      },
+      {
+        "id": 3,
+        "description": "謹慎、冷靜、注意細節",
+        "nextQuestion": 3
+      }
+    ]
+  }
+]
