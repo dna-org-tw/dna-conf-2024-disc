@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useEffect } from "react";
 import {
   PlayAgainBtn,
   SaveImageBtn,
@@ -146,13 +146,24 @@ const CharTemplate = (props: {
   const currentCharData = charInfo[charTypeCode];
   const { mainColor, borderColor, desc, cardContents } = currentCharData;
 
+  const [img, setImg] = React.useState<HTMLImageElement | null>(null);
+
   const [_, convertToPng, ref] = useToPng<HTMLDivElement>({
     onSuccess: (data) => {
+      console.log('data', data)
       const base64Data = data;
       downloadBase64Image(base64Data, "image.png");
     },
     backgroundColor: "white",
   });
+
+  // useEffect(() => {
+  //   const img = new Image();
+  //   img.src = currentCharData.charImg;
+  //   img.onload = () => {
+  //     setImg(img);
+  //   };
+  // }, [currentCharData.charImg]);
 
   const _getVerticalText = (text: string) => {
     const textEle = text
@@ -217,81 +228,87 @@ const CharTemplate = (props: {
   return (
     <div className="w-full h-full pt-8">
       {/* header section */}
-      <div className="px-8 py-4" ref={ref}>
-        {/* head block*/}
-        <div className="flex items-bottom justify-between mb-4">
-          {/* charImg */}
-          <div
-            className={clsx(
-              "max-w-[63%] p-1 rounded-md flex justify-center flex-wrap",
-              currentCharData.bgSet && currentCharData.bgSet
-            )}
-          >
-            <img
-              src={currentCharData.charImg}
-              alt={currentCharData.charType}
-              className="w-full bg-white rounded-md p-1"
-            />
-            <div className="text-white font-bold text-xl flex gap-4 py-2">
-              <span>Influence</span>
-              <span>{currentCharData.typeName}</span>
+      {!img && (
+        <div className="px-8 py-4" ref={ref}>
+          {/* head block*/}
+          <div className="flex items-bottom justify-between mb-4">
+            {/* charImg */}
+            <div
+              className={clsx(
+                "max-w-[63%] p-1 rounded-md flex justify-center flex-wrap",
+                currentCharData.bgSet && currentCharData.bgSet
+              )}
+            >
+              <img
+                src={currentCharData.charImg}
+                alt={currentCharData.charType}
+                className="w-full bg-white rounded-md p-1"
+              />
+              <div className="text-white font-bold text-xl flex gap-4 py-2">
+                <span>Influence</span>
+                <span>{currentCharData.typeName}</span>
+              </div>
+            </div>
+
+            {/* charTypeImg */}
+            <div className="flex max-w-[35%] items-start">
+              <img
+                src={currentCharData.charTypeImg}
+                alt={currentCharData.charType}
+                className="object-contain flex-1 px-2 max-w-[60%]"
+              />
+              <span className="font-bold text-xl h-full">
+                {_getVerticalText("你的冒險者角色是")}
+              </span>
             </div>
           </div>
-
-          {/* charTypeImg */}
-          <div className="flex max-w-[35%] items-start">
-            <img
-              src={currentCharData.charTypeImg}
-              alt={currentCharData.charType}
-              className="object-contain flex-1 px-2 max-w-[60%]"
-            />
-            <span className="font-bold text-xl h-full">
-              {_getVerticalText("你的冒險者角色是")}
-            </span>
+          {/* tags */}
+          <div className="flex flex-wrap mb-4 gap-1">
+            {_getTags(currentCharData.tags)}
           </div>
-        </div>
-        {/* tags */}
-        <div className="flex flex-wrap mb-4 gap-1">
-          {_getTags(currentCharData.tags)}
-        </div>
-        {/* jobs */}
-        <div
-          className={clsx(
-            "flex rounded-md overflow-hidden border-2 mb-4",
-            borderColor
-          )}
-        >
+          {/* jobs */}
           <div
             className={clsx(
-              "flex flex-col w-[40%] text-white px-2 py-1 text-md font-bold text-center  items-center justify-center",
-              mainColor
+              "flex rounded-md overflow-hidden border-2 mb-4",
+              borderColor
             )}
           >
-            <span>{userName}</span>
-            <span>適合的職業</span>
+            <div
+              className={clsx(
+                "flex flex-col w-[40%] text-white px-2 py-1 text-md font-bold text-center  items-center justify-center",
+                mainColor
+              )}
+            >
+              <span>{userName}</span>
+              <span>適合的職業</span>
+            </div>
+            <div className="text-lg px-3 pl-2 flex-1 gap-1 flex flex-wrap font-bold">
+              {_getJobs(currentCharData.jobs)}
+            </div>
           </div>
-          <div className="text-lg px-3 pl-2 flex-1 gap-1 flex flex-wrap font-bold">
-            {_getJobs(currentCharData.jobs)}
+          {/* desc */}
+          <div
+            className={clsx(
+              "border-2 rounded-md overflow-hidden mb-4",
+              borderColor
+            )}
+          >
+            <div className={clsx("flex", mainColor)}>
+              <span className="text-white font-bold p-2">冒險者指南</span>
+              <img
+                src={currentCharData.weaponImg}
+                alt=""
+                className="h-[39px]"
+              />
+            </div>
+            <div className="p-2">{desc}</div>
+          </div>
+          {/* cardContents */}
+          <div className="flex justify-between gap-3 mb-4">
+            {_getCardContents(cardContents)}
           </div>
         </div>
-        {/* desc */}
-        <div
-          className={clsx(
-            "border-2 rounded-md overflow-hidden mb-4",
-            borderColor
-          )}
-        >
-          <div className={clsx("flex", mainColor)}>
-            <span className="text-white font-bold p-2">冒險者指南</span>
-            <img src={currentCharData.weaponImg} alt="" className="h-[39px]" />
-          </div>
-          <div className="p-2">{desc}</div>
-        </div>
-        {/* cardContents */}
-        <div className="flex justify-between gap-3 mb-4">
-          {_getCardContents(cardContents)}
-        </div>
-      </div>
+      )}
 
       {/* footer */}
       <div className="w-[80%] mx-auto mb-4">
