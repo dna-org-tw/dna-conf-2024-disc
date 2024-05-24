@@ -4,9 +4,11 @@ import questionData from "../../data/questionData.json";
 import QuestionDescription from "./QuestionDescription";
 import QuestionOption from "./QuestionOption";
 import ProgressBlock from "./ProgressBlock";
+import { useRouter } from "next/navigation";
 
 export default function QuestionBlock() {
   const [chapter, setChapter] = useState(0);
+  const router = useRouter();
 
   const backgroundUrl = `/images/background/question/${chapter + 1}.png`;
   const question = questionData[chapter];
@@ -19,6 +21,10 @@ export default function QuestionBlock() {
   function handleNextQuestion() {
     if (chapter + 1 !== questionDataLength) {
       setChapter(chapter + 1);
+    }
+
+    if (chapter + 1 === questionDataLength) {
+      router.push("/ResPage");
     }
   }
 

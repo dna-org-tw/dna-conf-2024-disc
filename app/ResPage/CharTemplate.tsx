@@ -215,7 +215,7 @@ const CharTemplate = (props: {
   };
 
   return (
-    <div className="w-full h-full pt-8">
+    <div className="w-full h-full pt-8 bg-resBg bg-[top left] bg-contain bg-no-repeat bg-white">
       {/* header section */}
       <div className="px-8 py-4" ref={ref}>
         {/* head block*/}
@@ -288,7 +288,7 @@ const CharTemplate = (props: {
           <div className="p-2">{desc}</div>
         </div>
         {/* cardContents */}
-        <div className="flex justify-between gap-3 mb-4">
+        <div className="flex justify-between gap-3 mb-4 bg-white">
           {_getCardContents(cardContents)}
         </div>
       </div>
