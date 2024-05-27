@@ -1,5 +1,6 @@
 "use client";
 import clsx from "clsx";
+import Link from "next/link";
 import React from "react";
 
 export const Tag = ({
@@ -57,20 +58,25 @@ export const UtilsBtns = ({ className }: { className: string }) => {
         className="hover:cursor-pointer"
         src="/resPage/checkmore.png"
         alt="checkmore"
-        onClick={() => {}}
       />
-      <img
-        className=" hover:cursor-pointer"
-        src="/resPage/backHome.png"
-        alt="backHome"
-        onClick={() => {}}
-      />
+
+      <Link
+        href="https://conf.dna.org.tw/zh-TW/2024"
+        className=" hover:cursor-pointer w-full flex justify-center items-center"
+        target="_blank"
+      >
+        <img src="/resPage/backHome.png" alt="backHome" />
+      </Link>
     </div>
   );
 };
 
 export const PlayAgainBtn = ({ className }: { className: string }) => {
-  return <button className={className}>再玩一次</button>;
+  return (
+    <Link className={clsx("w-full text-center block", className)} href="/">
+      再玩一次
+    </Link>
+  );
 };
 
 export const SaveImageBtn = ({

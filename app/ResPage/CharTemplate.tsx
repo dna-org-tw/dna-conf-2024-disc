@@ -215,11 +215,11 @@ const CharTemplate = (props: {
   };
 
   return (
-    <div className="w-full h-full pt-8 bg-resBg bg-[top left] bg-contain bg-no-repeat bg-white">
+    <div className="w-full h-full pt-1 bg-resBg bg-[top left] bg-contain bg-no-repeat bg-white">
       {/* header section */}
       <div className="px-8 py-4" ref={ref}>
         {/* head block*/}
-        <div className="flex items-bottom justify-between mb-4">
+        <div className="flex items-bottom justify-between mb-2">
           {/* charImg */}
           <div
             className={clsx(
@@ -232,7 +232,7 @@ const CharTemplate = (props: {
               alt={currentCharData.charType}
               className="w-full bg-white rounded-md p-1"
             />
-            <div className="text-white font-bold text-xl flex gap-4 py-2">
+            <div className="text-white font-bold text-xl flex gap-4 py-1">
               <span>Influence</span>
               <span>{currentCharData.typeName}</span>
             </div>
@@ -251,13 +251,13 @@ const CharTemplate = (props: {
           </div>
         </div>
         {/* tags */}
-        <div className="flex flex-wrap mb-4 gap-1">
+        <div className="flex flex-wrap gap-1">
           {_getTags(currentCharData.tags)}
         </div>
         {/* jobs */}
         <div
           className={clsx(
-            "flex rounded-md overflow-hidden border-2 mb-4",
+            "flex rounded-md overflow-hidden border-2 mb-2",
             borderColor
           )}
         >
@@ -277,26 +277,26 @@ const CharTemplate = (props: {
         {/* desc */}
         <div
           className={clsx(
-            "border-2 rounded-md overflow-hidden mb-4",
+            "border-2 rounded-md overflow-hidden mb-2",
             borderColor
           )}
         >
           <div className={clsx("flex", mainColor)}>
-            <span className="text-white font-bold p-2">冒險者指南</span>
+            <span className="text-white font-bold px-2 py-1">冒險者指南</span>
             <img src={currentCharData.weaponImg} alt="" className="h-[39px]" />
           </div>
-          <div className="p-2">{desc}</div>
+          <div className="px-2 py-1 text-md">{desc}</div>
         </div>
         {/* cardContents */}
-        <div className="flex justify-between gap-3 mb-4 bg-white">
+        <div className="flex justify-between gap-3 mb-2 bg-white">
           {_getCardContents(cardContents)}
         </div>
       </div>
 
       {/* footer */}
-      <div className="w-[80%] mx-auto mb-4">
+      <div className="w-[80%] mx-auto mb-2 pb-2">
         {/* save res Img */}
-        <div className="flex justify-center mb-4">
+        <div className="flex justify-center mb-2">
           <SaveImageBtn
             className={clsx(
               "py-4 px-5 rounded-[30px] text-white font-bold text-lg w-full",
@@ -307,19 +307,19 @@ const CharTemplate = (props: {
         </div>
 
         {/* social media btns */}
-        {<SocicalMediaBtns className="flex gap-4 justify-center mb-4" />}
+        {<SocicalMediaBtns className="flex gap-4 justify-center mb-2" />}
 
         {/* utils btns */}
-        {<UtilsBtns className="flex gap-4 justify-center mb-4 flex-wrap" />}
+        {<UtilsBtns className="flex gap-4 justify-center mb-2 flex-wrap" />}
 
         {/* once again */}
         <PlayAgainBtn className="text-center w-full text-xl font-bold text-[#757575] my-4" />
       </div>
 
       {/* footer Img */}
-      <div className="bg-[#0E5A7E] py-8 flex justify-center items-center">
+      {/* <div className="bg-[#0E5A7E] py-8 flex justify-center items-center">
         <img src="/resPage/footerImg.png" alt="" />
-      </div>
+      </div> */}
     </div>
   );
 };
