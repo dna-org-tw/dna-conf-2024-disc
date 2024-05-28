@@ -1,6 +1,7 @@
 [
   {
-    "description": "組隊即將開始，你站在冒險者公會的大門前\n心中在思考著你會是哪一種冒險者\n思緒逐漸飄遠，過去的你，在其他人眼中是怎麼樣的？",
+    "id": 1,
+    "description": "公會任務即將展開\n你邊思考策略，邊計劃結交盟友並肩作戰\n想起過往的結盟經驗，\n他人眼中的你會怎樣形容你呢？",
     "options": [
       {
         "id": 1,
@@ -16,6 +17,506 @@
         "id": 3,
         "description": "謹慎、冷靜、注意細節",
         "nextQuestion": 3
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "description": "身為一個冒險者\n眼觀六路、耳聽八方是基本的\n在沒戰鬥時，你打算利用時間精進技能\n並同時強化每位隊員的力量，\n你覺得要如何做才能幫團隊加分呢？",
+    "options": [
+      {
+        "id": 1,
+        "description": "人多才是硬王道，管理團隊一起向上才會有力量！",
+        "nextQuestion": 4
+      },
+      {
+        "id": 2,
+        "description": "賺來的收入都不夠了要怎麼維持呢？還是想想怎麼搞錢比較實在吧...",
+        "nextQuestion": 4
+      },
+      {
+        "id": 3,
+        "description": "我們要去哪裡？我來找找休假可以玩的景點吧！",
+        "nextQuestion": 6
+      },
+      {
+        "id": 4,
+        "description": "聽說隔壁村落的烤肉餐廳特別好吃... 要不要一起去那邊吃飯？",
+        "nextQuestion": 6
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "description": "你和同伴繼續向前，突然前方出現了岔路\n看了看周圍沒有任何標示\n兩條路又長得一模一樣\n這時候，你會如何選擇呢？",
+    "options": [
+      {
+        "id": 1,
+        "description": "靠直覺選那條內心認為對的路(到底是路還是門)",
+        "nextQuestion": 5
+      },
+      {
+        "id": 2,
+        "description": "問其他人意見，看要走哪條路比較好",
+        "nextQuestion": 5
+      },
+      {
+        "id": 3,
+        "description": "留在原地，花點時間稍微思考一下",
+        "nextQuestion": 7
+      },
+      {
+        "id": 4,
+        "description": "想辦法收集詳細資訊再做判斷",
+        "nextQuestion": 7
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "description": "你選好了一條路往前走\n路上遇到了四種不同的守護獸可提供協助\n它們各有不同的專長和特點\n在只能選擇一位同行的情形下\n你會怎麼選呢?",
+    "options": [
+      {
+        "id": 1,
+        "description": "熱愛冒險的飛鷹",
+        "nextQuestion": 8
+      },
+      {
+        "id": 2,
+        "description": "直接果斷的獵豹",
+        "nextQuestion": 8
+      },
+      {
+        "id": 3,
+        "description": "熱情鼓舞的金絲猴",
+        "nextQuestion": 10
+      },
+      {
+        "id": 4,
+        "description": "自信交際的孔雀",
+        "nextQuestion": 10
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "description": "此時你看到公會的大門大開\n一位身著法師袍的人忽然出現\n他給了你一份破舊的捲軸\n並透露這任務從未有人完成過\n你想借眾人之力來執行\n而你又會如何向同伴說明任務呢？",
+    "options": [
+      {
+        "id": 1,
+        "description": "簡單敘述，針對每個疑問耐心說明",
+        "nextQuestion": 9
+      },
+      {
+        "id": 2,
+        "description": "滿懷熱情的說明，讓夥伴充滿期望與想像",
+        "nextQuestion": 9
+      },
+      {
+        "id": 3,
+        "description": "詳細分析任務，清楚說明任務目標及時程規劃",
+        "nextQuestion": 11
+      },
+      {
+        "id": 4,
+        "description": "說明自己的高標準及以吸引精英的加入",
+        "nextQuestion": 11
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "description": "你繼續向前，又發現一扇門和一個告示牌\n「感謝你們一路參與，為表示感謝\n本會將提供各位三天有薪假期」\n你驚訝地看著告示牌，心想：這也太佛了吧\n於是便開開心心地走出公會\n接下來你打算做什麼事呢？",
+    "options": [
+      {
+        "id": 1,
+        "description": "充分利用時間排滿行程，把沒參加到的聚會、課程、研討會通通排上",
+        "nextQuestion": 8
+      },
+      {
+        "id": 2,
+        "description": "翻開筆記，重新審視之前記錄下的問題並思考解決辦法",
+        "nextQuestion": 8
+      },
+      {
+        "id": 3,
+        "description": "平常壓力太大了，還是先出門找朋友玩好了",
+        "nextQuestion": 10
+      },
+      {
+        "id": 4,
+        "description": "去觀賞表演類活動，讓自己的心靈獲得滋養",
+        "nextQuestion": 10
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "description": "放了三天假回來，你看到其他人正聚在某處\n原來是公會負責人來了！\n他打算挑選一組團隊去火焰山進行神秘任務\n其實你對這個任務嚮往已久，打算自告奮勇\n但有許多先決條件須達成，\n此時你打算怎麼做呢？",
+    "options": [
+      {
+        "id": 1,
+        "description": "不說話，先耐心等負責人公布結果再說",
+        "nextQuestion": 9
+      },
+      {
+        "id": 2,
+        "description": "直接向負責人表示自己都可以配合",
+        "nextQuestion": 9
+      },
+      {
+        "id": 3,
+        "description": "開始分析各種細節給負責人",
+        "nextQuestion": 9
+      },
+      {
+        "id": 4,
+        "description": "直接告訴對方你認為正確的方式",
+        "nextQuestion": 9
+      }
+    ]
+  },
+  {
+    "id": 8,
+    "description": "返回冒險之旅的路上\n你發現了一個看起來很好相處的人\n你決定跟他搭起友誼的橋樑以方便日後交流\n你會怎樣認識對方呢？",
+    "options": [
+      {
+        "id": 1,
+        "description": "直球對決，上去就哈拉",
+        "nextQuestion": 20
+      },
+      {
+        "id": 2,
+        "description": "先展示自己厲害的一面",
+        "nextQuestion": 21
+      },
+      {
+        "id": 3,
+        "description": "先買一杯飲料請對方喝",
+        "nextQuestion": 22
+      },
+      {
+        "id": 4,
+        "description": "不斷讚美對方來獲得好感",
+        "nextQuestion": 23
+      }
+    ]
+  },
+  {
+    "id": 9,
+    "description": "你遇到了多年不見的昔日好友\n沒想到他也來參加冒險者公會\n閒聊之餘，他提起對你的印象\n描述到......",
+    "options": [
+      {
+        "id": 1,
+        "description": "「你是一個非常沉穩，遇到事情都不會慌亂的人」",
+        "nextQuestion": 24
+      },
+      {
+        "id": 2,
+        "description": "「看到你的時候就覺得很親切，跟你在一起不會有負擔」",
+        "nextQuestion": 25
+      },
+      {
+        "id": 3,
+        "description": "「有問題想要解決找你就對了，你會分析狀況給我聽，幫助我做決定」",
+        "nextQuestion": 26
+      },
+      {
+        "id": 4,
+        "description": "「你是個小心謹慎的人，這也因此讓你躲過很多危機...」",
+        "nextQuestion": 27
+      }
+    ]
+  },
+  {
+    "id": 10,
+    "description": "沒想到這位昔日好友一談起你特別帶勁\n並聊到你通常與人談話時會有的姿勢\n他這樣形容....",
+    "options": [
+      {
+        "id": 1,
+        "description": "「看你講話好像在跳舞，都有各種動作輔助解說」",
+        "nextQuestion": 20
+      },
+      {
+        "id": 2,
+        "description": "「當你聊到比較有情緒起伏時，會用一些固定的手勢、動作來表達」",
+        "nextQuestion": 21
+      },
+      {
+        "id": 3,
+        "description": "「我發現你似乎都會露出你最好看的那半張臉跟姿勢面對跟你談話的人」",
+        "nextQuestion": 22
+      },
+      {
+        "id": 4,
+        "description": "「你好像每次見面都會勾肩搭背、稱兄道弟的，熟悉度直接拉好拉滿」",
+        "nextQuestion": 23
+      }
+    ]
+  },
+  {
+    "id": 11,
+    "description": "你和這位好友話匣子一開就停不下來\n說起過往，他也提到對你前幾段感情的印象\n他是這樣描述的...",
+    "options": [
+      {
+        "id": 1,
+        "description": "「你大多時候好像都是聆聽的一方」",
+        "nextQuestion": 24
+      },
+      {
+        "id": 2,
+        "description": "「我覺得你很有耐心，不管對方怎麼盧都很沈穩」",
+        "nextQuestion": 25
+      },
+      {
+        "id": 3,
+        "description": "「對方跟你分享任何事，你好像都會很具體的分析...」",
+        "nextQuestion": 26
+      },
+      {
+        "id": 4,
+        "description": "「先不說其他的了，我感覺你對另一半要的求很高欸...」",
+        "nextQuestion": 27
+      }
+    ]
+  },
+  {
+    "id": 20,
+    "description": "參與公會的任務不知不覺已一段時間了\n你感覺自己的定位已非常明確，思及至此\n不禁回想自己一路以來所扮演的角色\n你覺得在團隊中，自己最顯而珍貴的點是？",
+    "options": [
+      {
+        "id": 1,
+        "description": "以目標為導向，有不服輸的精神",
+        "nextQuestion": null,
+        "result": "D"
+      },
+      {
+        "id": 2,
+        "description": "偏好做能讓我有自信的工作",
+        "nextQuestion": null,
+        "result": "D"
+      },
+      {
+        "id": 3,
+        "description": "我有很堅定的意志力",
+        "nextQuestion": null,
+        "result": "D"
+      },
+      {
+        "id": 4,
+        "description": "不太需要耗費太多腦力的事",
+        "nextQuestion": null,
+        "result": "D"
+      }
+    ]
+  },
+  {
+    "id": 21,
+    "description": "你又想起和隊友出任務時的情況\n每次遇到需要討論的事情時\n你覺得自己是.....",
+    "options": [
+      {
+        "id": 1,
+        "description": "對討論主題都能提出新穎的解決方法",
+        "nextQuestion": null,
+        "result": "D"
+      },
+      {
+        "id": 2,
+        "description": "有爭論時，感覺自己的觀點往往自己是比較好的",
+        "nextQuestion": null,
+        "result": "D"
+      },
+      {
+        "id": 3,
+        "description": "通常能解決主要問題",
+        "nextQuestion": null,
+        "result": "D"
+      },
+      {
+        "id": 4,
+        "description": "當眾人面對困難的抉擇時，你能果斷的做出決定",
+        "nextQuestion": null,
+        "result": "D"
+      }
+    ]
+  },
+  {
+    "id": 22,
+    "description": "你想起當遇到壓力山大的情形時\n你通常會.....",
+    "options": [
+      {
+        "id": 1,
+        "description": "用自己的方法解決",
+        "nextQuestion": null,
+        "result": "I"
+      },
+      {
+        "id": 2,
+        "description": "找人諮詢討論後再說",
+        "nextQuestion": null,
+        "result": "I"
+      },
+      {
+        "id": 3,
+        "description": "不拖延，主動面對",
+        "nextQuestion": null,
+        "result": "I"
+      },
+      {
+        "id": 4,
+        "description": "尋找夥伴一起解決",
+        "nextQuestion": null,
+        "result": "I"
+      }
+    ]
+  },
+  {
+    "id": 23,
+    "description": "在組隊參與任務的過程你覺得自己收穫滿滿\n回頭檢視一下，覺得有些點應該還能更好\n你覺得是什麼呢？",
+    "options": [
+      {
+        "id": 1,
+        "description": "不夠含蓄",
+        "nextQuestion": null,
+        "result": "I"
+      },
+      {
+        "id": 2,
+        "description": "太過熱情",
+        "nextQuestion": null,
+        "result": "I"
+      },
+      {
+        "id": 3,
+        "description": "怕氣氛尷尬太安靜",
+        "nextQuestion": null,
+        "result": "I"
+      },
+      {
+        "id": 4,
+        "description": "喜歡搶話",
+        "nextQuestion": null,
+        "result": "I"
+      }
+    ]
+  },
+  {
+    "id": 24,
+    "description": "回想這段歷程遇到各類型的人\n這些令你難忘的隊友\n你都是如何和他們相處的呢？",
+    "options": [
+      {
+        "id": 1,
+        "description": "自己大多時候都是聆聽的那一方",
+        "nextQuestion": null,
+        "result": "S"
+      },
+      {
+        "id": 2,
+        "description": "通常會讓對方開啟話題",
+        "nextQuestion": null,
+        "result": "S"
+      },
+      {
+        "id": 3,
+        "description": "很享受大家一起完成任務，儘管可能比較費時...",
+        "nextQuestion": null,
+        "result": "S"
+      },
+      {
+        "id": 4,
+        "description": "希望自己可以給對方可靠的感覺",
+        "nextQuestion": null,
+        "result": "S"
+      }
+    ]
+  },
+  {
+    "id": 25,
+    "description": "承上題，但理想上你則希望\n旁人可以這樣與你溝通...",
+    "options": [
+      {
+        "id": 1,
+        "description": "直接講重點，但又不會太強勢",
+        "nextQuestion": null,
+        "result": "S"
+      },
+      {
+        "id": 2,
+        "description": "輕鬆就好，不需要太嚴肅",
+        "nextQuestion": null,
+        "result": "S"
+      },
+      {
+        "id": 3,
+        "description": "以和為貴，態度良好",
+        "nextQuestion": null,
+        "result": "S"
+      },
+      {
+        "id": 4,
+        "description": "能以彼此好合作的方式展開對話",
+        "nextQuestion": null,
+        "result": "S"
+      }
+    ]
+  },
+  {
+    "id": 26,
+    "description": "經過這段時間的檢驗，你越來越認識自己\n也知道自己在完成一件事情時\n最在意的部分是...",
+    "options": [
+      {
+        "id": 1,
+        "description": "是否需要較多規劃才能完成",
+        "nextQuestion": null,
+        "result": "C"
+      },
+      {
+        "id": 2,
+        "description": "是否需要用到大量腦力",
+        "nextQuestion": null,
+        "result": "C"
+      },
+      {
+        "id": 3,
+        "description": "事情的前後是否一致或是會變來變去",
+        "nextQuestion": null,
+        "result": "C"
+      },
+      {
+        "id": 4,
+        "description": "流程是否明確",
+        "nextQuestion": null,
+        "result": "C"
+      }
+    ]
+  },
+  {
+    "id": 27,
+    "description": "終於要邁向旅途的尾聲完成任務了！\n回首這段路，你可曾擔心過什麼事\n或發生最糟的情況導致無法完成任務嗎？",
+    "options": [
+      {
+        "id": 1,
+        "description": "隊友們的決策太過主觀",
+        "nextQuestion": null,
+        "result": "C"
+      },
+      {
+        "id": 2,
+        "description": "自己做的決策或呈現給別人的東西被批評、挑毛病",
+        "nextQuestion": null,
+        "result": "C"
+      },
+      {
+        "id": 3,
+        "description": "任務本身或遇到的事變數太多，讓人無所適從",
+        "nextQuestion": null,
+        "result": "C"
+      },
+      {
+        "id": 4,
+        "description": "沒有一致的標準或制度",
+        "nextQuestion": null,
+        "result": "C"
       }
     ]
   }
