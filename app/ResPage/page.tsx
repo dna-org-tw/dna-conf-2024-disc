@@ -1,13 +1,15 @@
 import React from "react";
-import { CharTypeEnum } from "./types";
 import CharTemplate from "./CharTemplate";
-import Footer from "../components/Footer";
 
 const ResultPage = (props: any) => {
+  const getRandomInt = (max: number) => {
+    return Math.floor(Math.random() * Math.floor(max));
+  };
+
   return (
     <>
-      <CharTemplate charTypeCode={CharTypeEnum.魔法師} userName="Test001" />{" "}
-      <Footer />
+      <CharTemplate charTypeCode={getRandomInt(4)} userName="Test001" />{" "}
+      {/* <Footer /> */}
     </>
   );
 };
