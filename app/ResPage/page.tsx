@@ -7,7 +7,7 @@ const ResultPage = (props: any) => {
   return (
     <>
       <CharTemplate charTypeCode={CharTypeEnum.魔法師} userName="Test001" />{" "}
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 };

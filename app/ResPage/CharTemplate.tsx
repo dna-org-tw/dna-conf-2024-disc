@@ -10,6 +10,8 @@ import {
 import clsx from "clsx";
 import { CardContentTypeEnum, CharTypeEnum } from "./types";
 import { useToPng } from "@hugocxl/react-to-image";
+import Footer from "../components/Footer";
+import Image from "next/image";
 
 // bg-set
 const bgSet = {
@@ -217,9 +219,9 @@ const CharTemplate = (props: {
   return (
     <div className="w-full h-full pt-1 bg-resBg bg-[top left] bg-contain bg-no-repeat bg-white">
       {/* header section */}
-      <div className="px-8 py-4" ref={ref}>
+      <div className="px-8 pb-4 pt-2" ref={ref}>
         {/* head block*/}
-        <div className="flex items-bottom justify-between mb-2">
+        <div className="flex items-bottom justify-between mb-1">
           {/* charImg */}
           <div
             className={clsx(
@@ -294,7 +296,7 @@ const CharTemplate = (props: {
       </div>
 
       {/* footer */}
-      <div className="w-[80%] mx-auto mb-2 pb-2">
+      <div className="w-[80%] mx-auto">
         {/* save res Img */}
         <div className="flex justify-center mb-2">
           <SaveImageBtn
@@ -320,6 +322,19 @@ const CharTemplate = (props: {
       {/* <div className="bg-[#0E5A7E] py-8 flex justify-center items-center">
         <img src="/resPage/footerImg.png" alt="" />
       </div> */}
+      <footer className="bg-[#0E5A7E] pb-4 w-screen sm:w-[402px]">
+        <div className="mx-auto pt-6 pb-1 px-8">
+          <section className="flex justify-center items-center">
+            <Image
+              src="/footer-logo.svg"
+              alt="Taiwan Digital Nomad Association 台灣數位遊牧協會"
+              width={150}
+              height={50}
+              className="w-full max-w-[150px]"
+            />
+          </section>
+        </div>
+      </footer>
     </div>
   );
 };
