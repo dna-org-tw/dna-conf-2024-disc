@@ -33,14 +33,13 @@ const charInfo = {
     typeName: "掌控型",
     bgSet: bgSet["assassin"],
     tags: [
-      "大武地方創生",
-      "大武地方",
-      "大武",
-      "大武地方創生創生",
-      "大武地方地方",
+      "行動力",
+      "領頭羊",
+      "目標導向",
+      "壓力挑戰並存",
     ],
     jobs: ["勞版", "工程屍", "市場策略人猿", "設計猿"],
-    desc: "常常是團隊的活力來源、開心果！他們傾向於和其他思想開放的社交人士一起工作，並且渴望成為協作團隊的一部分，來大大展現自己的創意無邊際。這類型的人也具有強烈好奇心，喜歡分享",
+    desc: "勇往直前愛當先鋒，目標堅定執行力強，不達目的不擇手段，重結果與效率。個性孤僻固執又霸道，不太需要朋友，不懂體貼也沒耐心，常主觀批判他人而失去支持與認同。",
     benifit:
       "喜歡 站在主導地位，步調明快、果斷、行動力強且不達目的不罷休，做事充滿自信與活力，重視結果與效率，屬於推動它人行動的角色，在團體中往往位居領導地位。",
     weakness:
@@ -60,16 +59,15 @@ const charInfo = {
     bgSet: bgSet["knight"],
     mainColor: "bg-[#004E9D]",
     borderColor: "border-[#004E9D]",
-    // tags: ["獨立", "冷靜", "機智"],
+
     tags: [
-      "大武地方創生",
-      "大武地方",
-      "大武",
-      "大武地方創生創生",
-      "大武地方地方",
+      "重和平",
+      "同理共情",
+      "神隊友",
+      // "壓力挑戰並存",#重和平 #同理共情 #神隊友 #小圈圈 #黏著劑
     ],
     jobs: ["勞版", "工程屍", "市場策略人猿", "設計猿"],
-    desc: "騎士/Steadiness-穩定型喜愛安定、不安於改變，因此有最佳的持續能力，就算是事情有重大變化也會堅守崗位到最後一刻。",
+    desc: "為人親切喜好和平，擅傾聽與同理，關係一旦建立習於依賴同溫層，朋友圈小但緊密。看似散漫寡言及不擅做決定，需要旁人鼓勵與下指導棋，若指令明確是忠誠可靠的好隊友",
     benifit:
       "這類型的人往往天生內向、輕聲細語、不愛生氣，給人溫柔親切、和事佬的印象，屬於追隨型人格。忠誠度高並習慣在關係中尋求相似的支持者，也具備同情他人與優秀的傾聽能力，當他們一旦建立關係後，會非常依賴於維持關係，雖然朋友圈較小但非常緊密。",
     weakness:
@@ -89,16 +87,17 @@ const charInfo = {
     typeName: "影響型",
     mainColor: "bg-[#C54090]",
     borderColor: "border-[#C54090]",
-    // tags: ["獨立", "冷靜", "機智"],
+    // tags: ["獨立", "冷靜", "機智"],#條理分明 #幕僚 #精明務實 #完美主義 #低調
+    
     tags: [
-      "大武地方創生",
-      "大武地方",
-      "大武",
-      "大武地方創生創生",
-      "大武地方地方",
+      "條理分明",
+      "幕僚",
+      // "精明務實",
+      "完美主義",
+      // "低調",
     ],
     jobs: ["勞版", "工程屍", "市場策略人猿", "設計猿"],
-    desc: "魔法師/Compliance-分析型腦子最精明、善於思考與規劃，很適合作幕僚的工作，像是工程師等行業的人",
+    desc: "邏輯清晰擅思辨，重細節與數字，喜愛研究並找出有效解方，追求完美與美感。個性龜毛偏好先計劃再行動，常流於空想未執行再自責慚愧，給人悲觀消極又情緒化的印象。",
     benifit:
       "分析型的人邏輯清晰有條理、善長思考與分析，做事經過深思熟慮、謹慎務實，且重視細節與數字，不喜歡無法預測的事情也不愛出風頭。這類型的人通常也是發明者，能給予問題準確有效的解決方案，擁有追求完美與天生的藝術美感。",
     weakness:
@@ -119,15 +118,9 @@ const charInfo = {
     mainColor: "bg-[#FFD028]",
     borderColor: "border-[#FFD028]",
     // tags: ["獨立", "冷靜", "機智"],
-    tags: [
-      "大武地方創生",
-      "大武地方",
-      "大武",
-      "大武地方創生創生",
-      "大武地方地方",
-    ],
+    tags: ["臭美愛現", "社交嗨咖", "萬眾矚目"],
     jobs: ["勞版", "工程屍", "市場策略人猿", "設計猿"],
-    desc: "吟遊詩人/Influence-影響想型愛表現、專注於人際互動、善於運用群眾魅力、富創意，因此很適合從事廣告、企劃、公關等需要到處social協調的工作。",
+    desc: "團隊開心果，思想開明有創意，愛分享不怕生，享受眾人矚目。以自我為中心，善變熱愛嘗鮮，粗線條又一心多用，當心答應的事易忘記影響自身信用！適合從事社交型工作(人為導向)",
     benifit:
       "常常是團隊的活力來源、開心果！他們傾向於和其他思想開放的社交人士一起工作，並且渴望成為協作團隊的一部分，來大大展現自己的創意無邊際。這類型的人也具有強烈好奇心，喜歡分享與表達、健談不怕生，享受成為舞台中心受歡迎與肯定的感覺",
     weakness:
@@ -217,7 +210,7 @@ const CharTemplate = (props: {
   };
 
   return (
-    <div className="w-full h-full pt-1 bg-resBg bg-[top left] bg-contain bg-no-repeat bg-white">
+    <div className="w-full h-full pt-1 bg-resBg bg-[top left] bg-contain bg-no-repeat bg-white overflow-x-hidden">
       {/* header section */}
       <div className="px-8 pb-4 pt-2" ref={ref}>
         {/* head block*/}
@@ -287,7 +280,7 @@ const CharTemplate = (props: {
             <span className="text-white font-bold px-2 py-1">冒險者指南</span>
             <img src={currentCharData.weaponImg} alt="" className="h-[39px]" />
           </div>
-          <div className="px-2 py-1 text-md">{desc}</div>
+          <div className="px-2 py-1 text-md bg-white">{desc}</div>
         </div>
         {/* cardContents */}
         <div className="flex justify-between gap-3 mb-2 bg-white">
@@ -322,7 +315,7 @@ const CharTemplate = (props: {
       {/* <div className="bg-[#0E5A7E] py-8 flex justify-center items-center">
         <img src="/resPage/footerImg.png" alt="" />
       </div> */}
-      <footer className="bg-[#0E5A7E] pb-4 w-screen sm:w-[402px]">
+      <footer className="bg-[#0E5A7E] pb-4 w-full sm:w-[402px] ">
         <div className="mx-auto pt-6 pb-1 px-8">
           <section className="flex justify-center items-center">
             <Image
