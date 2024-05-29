@@ -8,7 +8,7 @@ const ResultPage = (props: any) => {
 
   return (
     <>
-      <CharTemplate charTypeCode={getRandomInt(4)} userName="Test001" />{" "}
+      <CharTemplate charTypeCode={getRandomInt(4)} userName="Test001" />
       {/* <Footer /> */}
     </>
   );
