@@ -10,8 +10,8 @@ import {
 import clsx from "clsx";
 import { CardContentTypeEnum, CharTypeEnum } from "./types";
 import { useToPng } from "@hugocxl/react-to-image";
-import Footer from "../components/Footer";
 import Image from "next/image";
+// import Footer from "../components/Footer";
 
 // bg-set
 const bgSet = {
@@ -32,12 +32,7 @@ const charInfo = {
     btnColor: "bg-[#E74310]",
     typeName: "掌控型",
     bgSet: bgSet["assassin"],
-    tags: [
-      "行動力",
-      "領頭羊",
-      "目標導向",
-      "壓力挑戰並存",
-    ],
+    tags: ["行動力", "領頭羊", "目標導向", "壓力挑戰並存"],
     jobs: ["勞版", "工程屍", "市場策略人猿", "設計猿"],
     desc: "勇往直前愛當先鋒，目標堅定執行力強，不達目的不擇手段，重結果與效率。個性孤僻固執又霸道，不太需要朋友，不懂體貼也沒耐心，常主觀批判他人而失去支持與認同。",
     benifit:
@@ -88,7 +83,7 @@ const charInfo = {
     mainColor: "bg-[#C54090]",
     borderColor: "border-[#C54090]",
     // tags: ["獨立", "冷靜", "機智"],#條理分明 #幕僚 #精明務實 #完美主義 #低調
-    
+
     tags: [
       "條理分明",
       "幕僚",
@@ -209,8 +204,15 @@ const CharTemplate = (props: {
     document.body.removeChild(link);
   };
 
+  const resBg = "/resBg.webp";
+
   return (
-    <div className="w-full h-full pt-1 bg-resBg bg-[top left] bg-contain bg-no-repeat bg-white overflow-x-hidden">
+    <div
+      className="w-full h-full pt-1 bg-[top left] bg-contain bg-no-repeat bg-white overflow-x-hidden"
+      style={{
+        backgroundImage: `url(${resBg})`,
+      }}
+    >
       {/* header section */}
       <div className="px-8 pb-4 pt-2" ref={ref}>
         {/* head block*/}
