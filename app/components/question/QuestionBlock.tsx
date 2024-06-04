@@ -6,7 +6,11 @@ import QuestionOption from "./QuestionOption";
 import ProgressBlock from "./ProgressBlock";
 import { useRouter } from "next/navigation";
 
-export default function QuestionBlock() {
+export default function QuestionBlock({
+  onGameEnd,
+}: {
+  onGameEnd: () => void;
+}) {
   const initChapter = 1;
   const questionDataLength = 27;
 
@@ -27,7 +31,8 @@ export default function QuestionBlock() {
       setChapter(nextQuestion);
       setPreChapterArray([...preChapterArray, nextQuestion]);
     } else {
-      router.push("/ResPage");
+      // router.push("/ResPage");
+      onGameEnd();
     }
   }
 
