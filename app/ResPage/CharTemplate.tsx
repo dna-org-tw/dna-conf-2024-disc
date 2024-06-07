@@ -143,8 +143,9 @@ const charInfo = {
 const CharTemplate = (props: {
   charTypeCode: CharTypeEnum;
   userName: string;
+  resetGame: () => void;
 }) => {
-  const { charTypeCode, userName } = props;
+  const { charTypeCode, userName, resetGame } = props;
   const currentCharData = charInfo[charTypeCode];
   const { mainColor, borderColor, desc, cardContents } = currentCharData;
 
@@ -215,6 +216,8 @@ const CharTemplate = (props: {
     link.click();
     document.body.removeChild(link);
   };
+
+  const resBg = "/ResBg.webp";
 
   return (
     <div className="w-full h-full pt-1 bg-resBg bg-[top left] bg-contain bg-no-repeat bg-white">
@@ -315,7 +318,10 @@ const CharTemplate = (props: {
         {<UtilsBtns className="flex gap-4 justify-center mb-2 flex-wrap" />}
 
         {/* once again */}
-        <PlayAgainBtn className="text-center w-full text-xl font-bold text-[#757575] my-4" />
+        <PlayAgainBtn
+          className="text-center w-full text-xl font-bold text-[#757575] my-4"
+          resetGame={resetGame}
+        />
       </div>
 
       {/* footer Img */}
