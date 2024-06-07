@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useEffect } from "react";
 import {
   PlayAgainBtn,
   SaveImageBtn,
@@ -136,11 +136,23 @@ const CharTemplate = (props: {
   const { charTypeCode, userName, resetGame } = props;
   const currentCharData = charInfo[charTypeCode];
   const { mainColor, borderColor, desc, cardContents } = currentCharData;
+  const [imgSrc, setImgSrc] = React.useState<string | null>(null);
+  const [env, setEnv] = React.useState<string>("PC");
+
+  const useAgent = () => {
+    const agent = navigator.userAgent;
+
+    const isMobile =
+      /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+        agent
+      );
+
+    return isMobile ? "Mobile" : "PC";
+  };
 
   const [_, convertToPng, ref] = useToPng<HTMLDivElement>({
     onSuccess: (data) => {
-      const base64Data = data;
-      downloadBase64Image(base64Data, "image.png");
+      setImgSrc(data);
     },
     backgroundColor: "white",
   });
@@ -207,17 +219,37 @@ const CharTemplate = (props: {
 
   const resBg = "/ResBg.webp";
 
+  useEffect(() => {
+    if (window !== undefined) {
+      const agent = useAgent();
+      setEnv(agent);
+
+      setTimeout(() => {
+        convertToPng();
+      }, 100);
+    }
+    // console.log("agent", useAgent());
+  }, []);
+
   return (
-    <div
-      className="w-full h-full pt-1 bg-[top left] bg-contain bg-no-repeat bg-white overflow-x-hidden"
-      style={{
-        backgroundImage: `url(${resBg})`,
-      }}
-    >
+    <div className="w-full h-full pt-1 bg-[top left] bg-contain bg-no-repeat bg-white overflow-x-hidden">
       {/* header section */}
-      <div className="px-8 pb-4 pt-2" ref={ref}>
+      {env === "Mobile" && imgSrc && (
+        <img src={imgSrc} alt="resImg" className={clsx(!imgSrc && "hidden")} />
+      )}
+
+      <div
+        className={clsx("px-8 pb-4 pt-2", env === "Mobile" && "hidden")}
+        ref={ref}
+        style={{
+          backgroundImage: `url(${resBg})`,
+          backgroundSize: "contain",
+          backgroundRepeat: "no-repeat",
+          backgroundPosition: "top left",
+        }}
+      >
         {/* head block*/}
-        <div className="flex items-bottom justify-between mb-1">
+        <div className={clsx("flex items-bottom justify-between mb-1")}>
           {/* charImg */}
           <div
             className={clsx(
@@ -290,7 +322,6 @@ const CharTemplate = (props: {
           {_getCardContents(cardContents)}
         </div>
       </div>
-
       {/* footer */}
       <div className="w-[80%] mx-auto">
         {/* save res Img */}
@@ -300,7 +331,9 @@ const CharTemplate = (props: {
               "py-4 px-5 rounded-[30px] text-white font-bold text-lg w-full",
               mainColor
             )}
-            convertMethod={convertToPng}
+            convertMethod={() => {
+              downloadBase64Image(imgSrc, "image.png");
+            }}
           />
         </div>
 
@@ -316,7 +349,6 @@ const CharTemplate = (props: {
           resetGame={resetGame}
         />
       </div>
-
       {/* footer Img */}
       {/* <div className="bg-[#0E5A7E] py-8 flex justify-center items-center">
         <img src="/resPage/footerImg.png" alt="" />
