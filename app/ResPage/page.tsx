@@ -22,11 +22,15 @@ const ResultPage = (props: any) => {
 
   return (
     <>
+<<<<<<< HEAD
       <CharTemplate
         charTypeCode={getRandomInt(4)}
         userName={userName}
         resetGame={resetGame}
       />
+=======
+      <CharTemplate charTypeCode={getRandomInt(4)} userName="Test001" />
+>>>>>>> 62d9be4c4853f374cb5552ddade12dcabb65419a
       {/* <Footer /> */}
     </>
   );
