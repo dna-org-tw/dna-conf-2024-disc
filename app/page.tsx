@@ -22,13 +22,10 @@ export default function Home() {
     setStatus("end");
   }
 
-<<<<<<< HEAD
   function resetGame() {
     setStatus("");
   }
 
-=======
->>>>>>> 62d9be4c4853f374cb5552ddade12dcabb65419a
   return (
     <>
       {status === "" && <CoverBlock onStartClick={handleStartClick} />}
@@ -36,11 +33,7 @@ export default function Home() {
         <IntroBlock onEnterGameClick={handleEnterGameClick} />
       )}
       {status === "question" && <QuestionBlock onGameEnd={onGameEnd} />}
-<<<<<<< HEAD
       {status === "end" && <ResultPage resetGame={resetGame} />}
-=======
-      {status === "end" && <ResultPage />}
->>>>>>> 62d9be4c4853f374cb5552ddade12dcabb65419a
     </>
   );
 }
