@@ -268,7 +268,7 @@ const CharTemplate = (props: {
             <span>{userName}</span>
             <span>適合的職業</span>
           </div>
-          <div className="text-lg px-3 pl-2 flex-1 gap-1 flex flex-wrap font-bold">
+          <div className="text-lg px-3 pl-2 flex-1 gap-1 flex flex-wrap font-bold bg-white">
             {_getJobs(currentCharData.jobs)}
           </div>
         </div>
