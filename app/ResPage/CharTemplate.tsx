@@ -33,8 +33,8 @@ const charInfo = {
     typeName: "掌控型",
     bgSet: bgSet["assassin"],
     tags: ["行動力", "領頭羊", "目標導向", "壓力挑戰並存"],
-    jobs: ["勞版", "工程屍", "市場策略人猿", "設計猿"],
-    desc: "勇往直前愛當先鋒，目標堅定執行力強，不達目的不擇手段，重結果與效率。個性孤僻固執又霸道，不太需要朋友，不懂體貼也沒耐心，常主觀批判他人而失去支持與認同。",
+    jobs: ["勞版", "嶌演", "事業管理經貍", "勞闆"],
+    desc: "常常是團隊的活力來源、開心果！他們傾向於和其他思想開放的社交人士一起工作，並且渴望成為協作團隊的一部分，來大大展現自己的創意無邊際。這類型的人也具有強烈好奇心，喜歡分享",
     benifit:
       "喜歡 站在主導地位，步調明快、果斷、行動力強且不達目的不罷休，做事充滿自信與活力，重視結果與效率，屬於推動它人行動的角色，在團體中往往位居領導地位。",
     weakness:
@@ -61,7 +61,7 @@ const charInfo = {
       "神隊友",
       // "壓力挑戰並存",#重和平 #同理共情 #神隊友 #小圈圈 #黏著劑
     ],
-    jobs: ["勞版", "工程屍", "市場策略人猿", "設計猿"],
+    jobs: ["社䲲", "輔導老獅", "人力資猿管理師"],
     desc: "為人親切喜好和平，擅傾聽與同理，關係一旦建立習於依賴同溫層，朋友圈小但緊密。看似散漫寡言及不擅做決定，需要旁人鼓勵與下指導棋，若指令明確是忠誠可靠的好隊友",
     benifit:
       "這類型的人往往天生內向、輕聲細語、不愛生氣，給人溫柔親切、和事佬的印象，屬於追隨型人格。忠誠度高並習慣在關係中尋求相似的支持者，也具備同情他人與優秀的傾聽能力，當他們一旦建立關係後，會非常依賴於維持關係，雖然朋友圈較小但非常緊密。",
@@ -91,7 +91,7 @@ const charInfo = {
       "完美主義",
       // "低調",
     ],
-    jobs: ["勞版", "工程屍", "市場策略人猿", "設計猿"],
+    jobs: ["工程獅", "精算獅", "策略人猿", "會計獅"],
     desc: "邏輯清晰擅思辨，重細節與數字，喜愛研究並找出有效解方，追求完美與美感。個性龜毛偏好先計劃再行動，常流於空想未執行再自責慚愧，給人悲觀消極又情緒化的印象。",
     benifit:
       "分析型的人邏輯清晰有條理、善長思考與分析，做事經過深思熟慮、謹慎務實，且重視細節與數字，不喜歡無法預測的事情也不愛出風頭。這類型的人通常也是發明者，能給予問題準確有效的解決方案，擁有追求完美與天生的藝術美感。",
@@ -114,7 +114,7 @@ const charInfo = {
     borderColor: "border-[#FFD028]",
     // tags: ["獨立", "冷靜", "機智"],
     tags: ["臭美愛現", "社交嗨咖", "萬眾矚目"],
-    jobs: ["勞版", "工程屍", "市場策略人猿", "設計猿"],
+    jobs: ["商務開發人猿", "公關人猿", "講獅"],
     desc: "團隊開心果，思想開明有創意，愛分享不怕生，享受眾人矚目。以自我為中心，善變熱愛嘗鮮，粗線條又一心多用，當心答應的事易忘記影響自身信用！適合從事社交型工作(人為導向)",
     benifit:
       "常常是團隊的活力來源、開心果！他們傾向於和其他思想開放的社交人士一起工作，並且渴望成為協作團隊的一部分，來大大展現自己的創意無邊際。這類型的人也具有強烈好奇心，喜歡分享與表達、健談不怕生，享受成為舞台中心受歡迎與肯定的感覺",
@@ -131,8 +131,9 @@ const charInfo = {
 const CharTemplate = (props: {
   charTypeCode: CharTypeEnum;
   userName: string;
+  resetGame: () => void;
 }) => {
-  const { charTypeCode, userName } = props;
+  const { charTypeCode, userName, resetGame } = props;
   const currentCharData = charInfo[charTypeCode];
   const { mainColor, borderColor, desc, cardContents } = currentCharData;
 
@@ -204,7 +205,7 @@ const CharTemplate = (props: {
     document.body.removeChild(link);
   };
 
-  const resBg = "/resBg.webp";
+  const resBg = "/ResBg.webp";
 
   return (
     <div
@@ -310,7 +311,10 @@ const CharTemplate = (props: {
         {<UtilsBtns className="flex gap-4 justify-center mb-2 flex-wrap" />}
 
         {/* once again */}
-        <PlayAgainBtn className="text-center w-full text-xl font-bold text-[#757575] my-4" />
+        <PlayAgainBtn
+          className="text-center w-full text-xl font-bold text-[#757575] my-4"
+          resetGame={resetGame}
+        />
       </div>
 
       {/* footer Img */}

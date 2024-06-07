@@ -71,11 +71,20 @@ export const UtilsBtns = ({ className }: { className: string }) => {
   );
 };
 
-export const PlayAgainBtn = ({ className }: { className: string }) => {
+export const PlayAgainBtn = ({
+  className,
+  resetGame,
+}: {
+  className: string;
+  resetGame: () => void;
+}) => {
   return (
-    <Link className={clsx("w-full text-center block", className)} href="/">
+    <button
+      className={clsx("w-full text-center block", className)}
+      onClick={resetGame}
+    >
       再玩一次
-    </Link>
+    </button>
   );
 };
 
