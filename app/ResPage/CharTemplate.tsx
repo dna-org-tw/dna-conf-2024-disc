@@ -152,6 +152,7 @@ const CharTemplate = (props: {
 
   const [_, convertToPng, ref] = useToPng<HTMLDivElement>({
     onSuccess: (data) => {
+      console.log("data", data);
       setImgSrc(data);
     },
     backgroundColor: "white",
@@ -222,13 +223,15 @@ const CharTemplate = (props: {
   useEffect(() => {
     if (window !== undefined) {
       const agent = useAgent();
-      setEnv(agent);
 
       setTimeout(() => {
         convertToPng();
+        setEnv(agent);
       }, 100);
     }
-    // console.log("agent", useAgent());
+    return () => {
+      localStorage.removeItem("playerName");
+    };
   }, []);
 
   return (
@@ -239,7 +242,10 @@ const CharTemplate = (props: {
       )}
 
       <div
-        className={clsx("px-8 pb-4 pt-2", env === "Mobile" && "hidden")}
+        className={clsx(
+          "px-8 pb-4 pt-2",
+          env === "Mobile" && imgSrc ? "invisible absolute h-0" : ""
+        )}
         ref={ref}
         style={{
           backgroundImage: `url(${resBg})`,
