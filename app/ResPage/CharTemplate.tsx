@@ -149,10 +149,10 @@ const CharTemplate = (props: {
 
     return isMobile ? "Mobile" : "PC";
   };
+  const agent = useAgent();
 
   const [_, convertToPng, ref] = useToPng<HTMLDivElement>({
     onSuccess: (data) => {
-      console.log("data", data);
       setImgSrc(data);
     },
     backgroundColor: "white",
@@ -222,8 +222,6 @@ const CharTemplate = (props: {
 
   useEffect(() => {
     if (window !== undefined) {
-      const agent = useAgent();
-
       setTimeout(() => {
         convertToPng();
         setEnv(agent);
