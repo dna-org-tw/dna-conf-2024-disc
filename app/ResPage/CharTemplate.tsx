@@ -138,6 +138,7 @@ const CharTemplate = (props: {
   const { mainColor, borderColor, desc, cardContents } = currentCharData;
   const [imgSrc, setImgSrc] = React.useState<string | null>(null);
   const [env, setEnv] = React.useState<string>("PC");
+  const converted = React.useRef(false);
 
   const useAgent = () => {
     const agent = navigator.userAgent;
@@ -154,6 +155,7 @@ const CharTemplate = (props: {
   const [_, convertToPng, ref] = useToPng<HTMLDivElement>({
     onSuccess: (data) => {
       setImgSrc(data);
+      converted.current = true;
     },
     backgroundColor: "white",
   });
@@ -233,7 +235,7 @@ const CharTemplate = (props: {
   }, []);
 
   return (
-    <div className="w-full h-full pt-1 bg-[top left] bg-contain bg-no-repeat bg-white overflow-x-hidden">
+    <div className="w-full h-full bg-[top left] bg-contain bg-no-repeat bg-white overflow-x-hidden">
       {/* header section */}
       {env === "Mobile" && imgSrc && (
         <img src={imgSrc} alt="resImg" className={clsx(!imgSrc && "hidden")} />
@@ -241,8 +243,10 @@ const CharTemplate = (props: {
 
       <div
         className={clsx(
-          "px-8 pb-4 pt-2",
-          env === "Mobile" && imgSrc ? "invisible absolute h-0" : ""
+          "px-8 pb-4 pt-4",
+          env === "Mobile" && imgSrc && converted.current
+            ? "invisible absolute h-0"
+            : ""
         )}
         ref={ref}
         style={{
