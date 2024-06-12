@@ -11,7 +11,7 @@ import clsx from "clsx";
 import { CardContentTypeEnum, CharTypeEnum } from "./types";
 import { useToPng } from "@hugocxl/react-to-image";
 import Image from "next/image";
-import { Commet } from "react-loading-indicators";
+import { OrbitProgress } from "react-loading-indicators";
 // import Footer from "../components/Footer";
 
 // bg-set
@@ -137,14 +137,13 @@ const CharTemplate = (props: {
   const { charTypeCode, userName, resetGame } = props;
   const currentCharData = charInfo[charTypeCode];
   const { mainColor, borderColor, desc, cardContents } = currentCharData;
-  const [imgSrc, setImgSrc] = React.useState<string | null>(null);
-  const [env, setEnv] = React.useState<string>("PC");
-  const [isLoading, setIsLoading] = React.useState<boolean>(false);
+  const [isLoading, setIsLoading] = React.useState<boolean>(true);
+  // const [imgSrc, setImgSrc] = React.useState<string | null>(null);
   // const converted = React.useRef(false);
 
   const [_, convertToPng, ref] = useToPng<HTMLDivElement>({
     onSuccess: (data) => {
-      setImgSrc(data);
+      // setImgSrc(data);
       // converted.current = true;
       downloadBase64Image(data, "image.png");
     },
@@ -213,168 +212,177 @@ const CharTemplate = (props: {
 
   const resBg = "/ResBg.webp";
 
-  // useEffect(() => {
-  // if (typeof window !== undefined && typeof navigator !== undefined) {
-  // setTimeout(() => {
-  //   convertToPng();
-  //   const agent = navigator?.userAgent;
-  //   const isMobile =
-  //     /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
-  //       agent
-  //     );
-  //   const currrentDev = isMobile ? "Mobile" : "PC";
-  //   setEnv(currrentDev);
-  // }, 100);
-  // }
-  // return () => {
-  //   localStorage.removeItem("playerName");
-  // };
-  // }, []);
+  useEffect(() => {
+    // if (typeof window !== undefined && typeof navigator !== undefined) {
+    // setTimeout(() => {
+    //   convertToPng();
+    //   const agent = navigator?.userAgent;
+    //   const isMobile =
+    //     /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+    //       agent
+    //     );
+    //   const currrentDev = isMobile ? "Mobile" : "PC";
+    //   setEnv(currrentDev);
+    // }, 100);
+    // }
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 3000);
+    return () => {
+      localStorage.removeItem("playerName");
+    };
+  }, []);
 
   return (
     <div className="w-full h-full bg-[top left] bg-contain bg-no-repeat bg-white overflow-x-hidden">
       {/* header section */}
-      {/* {env === "Mobile" && imgSrc && (
-        <img src={imgSrc??''} alt="resImg" className={clsx(!imgSrc && "hidden")} />
-      )} */}
-      {/* {isLoading && (
-        <Commet color="#32cd32" size="medium" text="" textColor="" />
-      )} */}
-      <div
-        className={clsx(
-          "px-8 pb-4 pt-4",
-          // env === "Mobile" && imgSrc
-          //   ? //  && converted.current
-          //     "invisible absolute h-0"
-          //   : ""
-        )}
-        ref={ref}
-        style={{
-          backgroundImage: `url(${resBg})`,
-          backgroundSize: "contain",
-          backgroundRepeat: "no-repeat",
-          backgroundPosition: "top left",
-        }}
-      >
-        {/* head block*/}
-        <div className={clsx("flex items-bottom justify-between mb-1")}>
-          {/* charImg */}
+      {isLoading && (
+        <div className="abssolute w-full h-full bg-gray-300">
+          <div className="flex justify-center items-center w-full h-full">
+            <OrbitProgress color="white" size="medium" text="" textColor="" />
+          </div>
+        </div>
+      )}
+      {!isLoading && (
+        <>
+          {" "}
           <div
-            className={clsx(
-              "max-w-[63%] p-1 rounded-md flex justify-center flex-wrap",
-              currentCharData.bgSet && currentCharData.bgSet
-            )}
+            className={clsx("px-8 pb-4 pt-4")}
+            ref={ref}
+            style={{
+              backgroundImage: `url(${resBg})`,
+              backgroundSize: "contain",
+              backgroundRepeat: "no-repeat",
+              backgroundPosition: "top left",
+            }}
           >
-            <img
-              src={currentCharData.charImg}
-              alt={currentCharData.charType}
-              className="w-full bg-white rounded-md p-1 min-h-[185px]"
-            />
-            <div className="text-white font-bold text-xl flex gap-4 py-1">
-              <span>Influence</span>
-              <span>{currentCharData.typeName}</span>
+            {/* head block*/}
+            <div className={clsx("flex items-bottom justify-between mb-1")}>
+              {/* charImg */}
+              <div
+                className={clsx(
+                  "max-w-[63%] p-1 rounded-md flex justify-center flex-wrap",
+                  currentCharData.bgSet && currentCharData.bgSet
+                )}
+              >
+                <img
+                  src={currentCharData.charImg}
+                  alt={currentCharData.charType}
+                  className="w-full bg-white rounded-md p-1 min-h-[185px]"
+                />
+                <div className="text-white font-bold text-xl flex gap-4 py-1">
+                  <span>Influence</span>
+                  <span>{currentCharData.typeName}</span>
+                </div>
+              </div>
+
+              {/* charTypeImg */}
+              <div className="flex max-w-[35%] items-start">
+                <img
+                  src={currentCharData.charTypeImg}
+                  alt={currentCharData.charType}
+                  className="object-contain flex-1 px-2 max-w-[60%]"
+                />
+                <span className="font-bold text-xl h-full">
+                  {_getVerticalText("你的冒險者角色是")}
+                </span>
+              </div>
+            </div>
+            {/* tags */}
+            <div className="flex flex-wrap gap-1">
+              {_getTags(currentCharData.tags)}
+            </div>
+            {/* jobs */}
+            <div
+              className={clsx(
+                "flex rounded-md overflow-hidden border-2 mb-2",
+                borderColor
+              )}
+            >
+              <div
+                className={clsx(
+                  "flex flex-col w-[40%] text-white px-2 py-1 text-md font-bold text-center  items-center justify-center",
+                  mainColor
+                )}
+              >
+                <span>{userName}</span>
+                <span>適合的職業</span>
+              </div>
+              <div className="text-lg px-3 pl-2 flex-1 gap-1 flex flex-wrap font-bold bg-white">
+                {_getJobs(currentCharData.jobs)}
+              </div>
+            </div>
+            {/* desc */}
+            <div
+              className={clsx(
+                "border-2 rounded-md overflow-hidden mb-2",
+                borderColor
+              )}
+            >
+              <div className={clsx("flex", mainColor)}>
+                <span className="text-white font-bold px-2 py-1">
+                  冒險者指南
+                </span>
+                <img
+                  src={currentCharData.weaponImg}
+                  alt=""
+                  className="h-[39px]"
+                />
+              </div>
+              <div className="px-2 py-1 text-md bg-white">{desc}</div>
+            </div>
+            {/* cardContents */}
+            <div className="flex justify-between gap-3 mb-2 bg-white">
+              {_getCardContents(cardContents)}
             </div>
           </div>
+          {/* footer */}
+          <div className="w-[80%] mx-auto">
+            {/* save res Img */}
+            <div className="flex justify-center mb-2">
+              <SaveImageBtn
+                className={clsx(
+                  "py-4 px-5 rounded-[30px] text-white font-bold text-lg w-full",
+                  mainColor
+                )}
+                convertMethod={() => {
+                  convertToPng();
+                  // downloadBase64Image(imgSrc, "image.png");
+                }}
+              />
+            </div>
 
-          {/* charTypeImg */}
-          <div className="flex max-w-[35%] items-start">
-            <img
-              src={currentCharData.charTypeImg}
-              alt={currentCharData.charType}
-              className="object-contain flex-1 px-2 max-w-[60%]"
+            {/* social media btns */}
+            {<SocicalMediaBtns className="flex gap-4 justify-center mb-2" />}
+
+            {/* utils btns */}
+            {<UtilsBtns className="flex gap-4 justify-center mb-2 flex-wrap" />}
+
+            {/* once again */}
+            <PlayAgainBtn
+              className="text-center w-full text-xl font-bold text-[#757575] my-4"
+              resetGame={resetGame}
             />
-            <span className="font-bold text-xl h-full">
-              {_getVerticalText("你的冒險者角色是")}
-            </span>
           </div>
-        </div>
-        {/* tags */}
-        <div className="flex flex-wrap gap-1">
-          {_getTags(currentCharData.tags)}
-        </div>
-        {/* jobs */}
-        <div
-          className={clsx(
-            "flex rounded-md overflow-hidden border-2 mb-2",
-            borderColor
-          )}
-        >
-          <div
-            className={clsx(
-              "flex flex-col w-[40%] text-white px-2 py-1 text-md font-bold text-center  items-center justify-center",
-              mainColor
-            )}
-          >
-            <span>{userName}</span>
-            <span>適合的職業</span>
-          </div>
-          <div className="text-lg px-3 pl-2 flex-1 gap-1 flex flex-wrap font-bold bg-white">
-            {_getJobs(currentCharData.jobs)}
-          </div>
-        </div>
-        {/* desc */}
-        <div
-          className={clsx(
-            "border-2 rounded-md overflow-hidden mb-2",
-            borderColor
-          )}
-        >
-          <div className={clsx("flex", mainColor)}>
-            <span className="text-white font-bold px-2 py-1">冒險者指南</span>
-            <img src={currentCharData.weaponImg} alt="" className="h-[39px]" />
-          </div>
-          <div className="px-2 py-1 text-md bg-white">{desc}</div>
-        </div>
-        {/* cardContents */}
-        <div className="flex justify-between gap-3 mb-2 bg-white">
-          {_getCardContents(cardContents)}
-        </div>
-      </div>
-      {/* footer */}
-      <div className="w-[80%] mx-auto">
-        {/* save res Img */}
-        <div className="flex justify-center mb-2">
-          <SaveImageBtn
-            className={clsx(
-              "py-4 px-5 rounded-[30px] text-white font-bold text-lg w-full",
-              mainColor
-            )}
-            convertMethod={() => {
-              convertToPng();
-              // downloadBase64Image(imgSrc, "image.png");
-            }}
-          />
-        </div>
-
-        {/* social media btns */}
-        {<SocicalMediaBtns className="flex gap-4 justify-center mb-2" />}
-
-        {/* utils btns */}
-        {<UtilsBtns className="flex gap-4 justify-center mb-2 flex-wrap" />}
-
-        {/* once again */}
-        <PlayAgainBtn
-          className="text-center w-full text-xl font-bold text-[#757575] my-4"
-          resetGame={resetGame}
-        />
-      </div>
-      {/* footer Img */}
-      {/* <div className="bg-[#0E5A7E] py-8 flex justify-center items-center">
+          {/* footer Img */}
+          {/* <div className="bg-[#0E5A7E] py-8 flex justify-center items-center">
         <img src="/resPage/footerImg.png" alt="" />
       </div> */}
-      <footer className="bg-[#0E5A7E] pb-4 w-full sm:w-[402px] ">
-        <div className="mx-auto pt-6 pb-1 px-8">
-          <section className="flex justify-center items-center">
-            <Image
-              src="/footer-logo.svg"
-              alt="Taiwan Digital Nomad Association 台灣數位遊牧協會"
-              width={150}
-              height={50}
-              className="w-full max-w-[150px]"
-            />
-          </section>
-        </div>
-      </footer>
+          <footer className="bg-[#0E5A7E] pb-4 w-full sm:w-[402px] ">
+            <div className="mx-auto pt-6 pb-1 px-8">
+              <section className="flex justify-center items-center">
+                <Image
+                  src="/footer-logo.svg"
+                  alt="Taiwan Digital Nomad Association 台灣數位遊牧協會"
+                  width={150}
+                  height={50}
+                  className="w-full max-w-[150px]"
+                />
+              </section>
+            </div>
+          </footer>
+        </>
+      )}
     </div>
   );
 };
