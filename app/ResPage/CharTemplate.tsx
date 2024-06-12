@@ -140,21 +140,6 @@ const CharTemplate = (props: {
   const [env, setEnv] = React.useState<string>("PC");
   const converted = React.useRef(false);
 
-  const useAgent = () => {
-    if (window !== undefined) {
-      const agent = navigator.userAgent;
-
-      const isMobile =
-        /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
-          agent
-        );
-      return isMobile ? "Mobile" : "PC";
-    } else {
-      return "PC";
-    }
-  };
-  const agent = useAgent();
-
   const [_, convertToPng, ref] = useToPng<HTMLDivElement>({
     onSuccess: (data) => {
       setImgSrc(data);
@@ -226,10 +211,19 @@ const CharTemplate = (props: {
   const resBg = "/ResBg.webp";
 
   useEffect(() => {
-    if (window !== undefined) {
+    if (typeof window !== undefined && typeof navigator !== undefined) {
       setTimeout(() => {
         convertToPng();
-        setEnv(agent);
+
+        const agent = navigator?.userAgent;
+
+        const isMobile =
+          /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+            agent
+          );
+        const currrentDev = isMobile ? "Mobile" : "PC";
+
+        setEnv(currrentDev);
       }, 100);
     }
     return () => {
