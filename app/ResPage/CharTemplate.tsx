@@ -141,14 +141,17 @@ const CharTemplate = (props: {
   const converted = React.useRef(false);
 
   const useAgent = () => {
-    const agent = navigator.userAgent;
+    if (window !== undefined) {
+      const agent = navigator.userAgent;
 
-    const isMobile =
-      /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
-        agent
-      );
-
-    return isMobile ? "Mobile" : "PC";
+      const isMobile =
+        /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+          agent
+        );
+      return isMobile ? "Mobile" : "PC";
+    } else {
+      return "PC";
+    }
   };
   const agent = useAgent();
 
@@ -268,7 +271,7 @@ const CharTemplate = (props: {
             <img
               src={currentCharData.charImg}
               alt={currentCharData.charType}
-              className="w-full bg-white rounded-md p-1"
+              className="w-full bg-white rounded-md p-1 min-h-[185px]"
             />
             <div className="text-white font-bold text-xl flex gap-4 py-1">
               <span>Influence</span>
