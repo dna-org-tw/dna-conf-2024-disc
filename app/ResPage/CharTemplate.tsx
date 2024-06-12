@@ -144,7 +144,7 @@ const CharTemplate = (props: {
     onSuccess: (data) => {
       setImgSrc(data);
       // converted.current = true;
-      downloadBase64Image(imgSrc, "image.png");
+      downloadBase64Image(data, "image.png");
     },
     backgroundColor: "white",
   });
