@@ -138,12 +138,13 @@ const CharTemplate = (props: {
   const { mainColor, borderColor, desc, cardContents } = currentCharData;
   const [imgSrc, setImgSrc] = React.useState<string | null>(null);
   const [env, setEnv] = React.useState<string>("PC");
-  const converted = React.useRef(false);
+  // const converted = React.useRef(false);
 
   const [_, convertToPng, ref] = useToPng<HTMLDivElement>({
     onSuccess: (data) => {
       setImgSrc(data);
-      converted.current = true;
+      // converted.current = true;
+      downloadBase64Image(imgSrc, "image.png");
     },
     backgroundColor: "white",
   });
@@ -211,21 +212,18 @@ const CharTemplate = (props: {
   const resBg = "/ResBg.webp";
 
   useEffect(() => {
-    if (typeof window !== undefined && typeof navigator !== undefined) {
-      setTimeout(() => {
-        convertToPng();
-
-        const agent = navigator?.userAgent;
-
-        const isMobile =
-          /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
-            agent
-          );
-        const currrentDev = isMobile ? "Mobile" : "PC";
-
-        setEnv(currrentDev);
-      }, 100);
-    }
+    // if (typeof window !== undefined && typeof navigator !== undefined) {
+    // setTimeout(() => {
+    //   convertToPng();
+    //   const agent = navigator?.userAgent;
+    //   const isMobile =
+    //     /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+    //       agent
+    //     );
+    //   const currrentDev = isMobile ? "Mobile" : "PC";
+    //   setEnv(currrentDev);
+    // }, 100);
+    // }
     return () => {
       localStorage.removeItem("playerName");
     };
@@ -234,15 +232,16 @@ const CharTemplate = (props: {
   return (
     <div className="w-full h-full bg-[top left] bg-contain bg-no-repeat bg-white overflow-x-hidden">
       {/* header section */}
-      {env === "Mobile" && imgSrc && (
-        <img src={imgSrc} alt="resImg" className={clsx(!imgSrc && "hidden")} />
-      )}
+      {/* {env === "Mobile" && imgSrc && (
+        <img src={imgSrc??''} alt="resImg" className={clsx(!imgSrc && "hidden")} />
+      )} */}
 
       <div
         className={clsx(
           "px-8 pb-4 pt-4",
-          env === "Mobile" && imgSrc && converted.current
-            ? "invisible absolute h-0"
+          env === "Mobile" && imgSrc
+            ? //  && converted.current
+              "invisible absolute h-0"
             : ""
         )}
         ref={ref}
@@ -337,7 +336,8 @@ const CharTemplate = (props: {
               mainColor
             )}
             convertMethod={() => {
-              downloadBase64Image(imgSrc, "image.png");
+              convertToPng();
+              // downloadBase64Image(imgSrc, "image.png");
             }}
           />
         </div>
