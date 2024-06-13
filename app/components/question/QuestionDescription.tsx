@@ -6,7 +6,7 @@ export default function QuestionDescription({
   description: string;
 }) {
   return (
-    <div className="mb-16 mt-10">
+    <div className="mb-6 mt-10 overflow-y-scroll">
       <p className="text-white text-lg">
         {description
           ? description.split("\n").map((text) => (

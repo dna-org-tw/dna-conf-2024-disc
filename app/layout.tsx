@@ -19,7 +19,12 @@ export default function RootLayout({
             alt=""
           />
           <div className="relative z-20 h-[100svh] w-screen overflow-hidden bg-gray-3 shadow-2xl sm:h-[672px] sm:w-[402px] md:rounded-lg">
-            <div className="h-full ">{children}</div>
+            <div className="h-full">{children}</div>
+            <link
+              rel="preload"
+              as="image"
+              href={`/images/background/intro-bg.png`}
+            />
           </div>
         </div>
       </body>
