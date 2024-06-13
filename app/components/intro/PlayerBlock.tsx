@@ -11,7 +11,7 @@ export default function PlayerBlock({
       <input
         placeholder="請輸入你的名字"
         onChange={onNameInputChange}
-        className="bg-transparent border-b-2 border-b-black outline-none placeholder-shown:text-center placeholder-black text-base"
+        className="bg-transparent border-b-2 border-b-black rounded-none outline-none placeholder-shown:text-center placeholder-black text-base"
       />
     </div>
   );

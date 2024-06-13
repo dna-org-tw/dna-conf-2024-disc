@@ -60,6 +60,7 @@ export default function QuestionBlock({
         .filter((option) => !!option.nextQuestion)
         .map((option) => (
           <link
+            key={option.id}
             rel="preload"
             as="image"
             href={`/images/background/question/${option.nextQuestion}.png`}
@@ -69,6 +70,7 @@ export default function QuestionBlock({
         <ProgressBlock
           onLeftArrowClick={handlePreQuestion}
           progress={progress}
+          chapter={chapter}
         />
         <QuestionDescription description={question?.description || ""} />
         <div className="overflow-y-scroll">
