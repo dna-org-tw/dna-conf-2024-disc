@@ -1,4 +1,4 @@
-import { ChangeEventHandler, useState } from "react";
+import { ChangeEventHandler } from "react";
 
 export default function PlayerBlock({
   onNameInputChange,
@@ -11,7 +11,7 @@ export default function PlayerBlock({
       <input
         placeholder="請輸入你的名字"
         onChange={onNameInputChange}
-        className="bg-transparent border-b-2 border-b-black outline-none placeholder-shown:text-center placeholder-black text-sm"
+        className="bg-transparent border-b-2 border-b-black outline-none placeholder-shown:text-center placeholder-black text-base"
       />
     </div>
   );

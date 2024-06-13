@@ -18,7 +18,7 @@ export default function QuestionBlock({
   const [preChapterArray, setPreChapterArray] = useState<number[]>([
     initChapter,
   ]);
-  const router = useRouter();
+
   const backgroundUrl = `/images/background/question/${chapter}.png`;
   const question = questionData.find((question) => question.id === chapter);
   const questionOptions = question?.options || [
@@ -31,7 +31,6 @@ export default function QuestionBlock({
       setChapter(nextQuestion);
       setPreChapterArray([...preChapterArray, nextQuestion]);
     } else {
-      // router.push("/ResPage");
       onGameEnd();
     }
   }
@@ -66,23 +65,25 @@ export default function QuestionBlock({
             href={`/images/background/question/${option.nextQuestion}.png`}
           />
         ))}
-      <div className="flex flex-col">
+      <div className="flex flex-col overflow-y-scroll h-full">
         <ProgressBlock
           onLeftArrowClick={handlePreQuestion}
           progress={progress}
         />
         <QuestionDescription description={question?.description || ""} />
-        {questionOptions.map((option) => (
-          <Fragment key={option.id}>
-            <QuestionOption
-              id={option.id}
-              description={option.description}
-              onQuestionOptionClick={() =>
-                handleNextQuestion(option?.nextQuestion)
-              }
-            />
-          </Fragment>
-        ))}
+        <div className="overflow-y-scroll">
+          {questionOptions.map((option) => (
+            <Fragment key={option.id}>
+              <QuestionOption
+                id={option.id}
+                description={option.description}
+                onQuestionOptionClick={() =>
+                  handleNextQuestion(option?.nextQuestion)
+                }
+              />
+            </Fragment>
+          ))}
+        </div>
       </div>
     </div>
   );
