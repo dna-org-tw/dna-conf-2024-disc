@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function Figure() {
   return (
-    <section className="flex justify-center absolute top-[160px] w-full ml-1 gap-3 md:gap-5">
+    <section className="flex justify-center w-full ml-1 gap-3 md:gap-5">
       <Image
         src="/images/figure/cavalier.svg"
         alt="cavalier"

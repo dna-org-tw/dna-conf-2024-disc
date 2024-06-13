@@ -20,10 +20,10 @@ export default function WeaponBlock() {
   }, []);
 
   return (
-    <div className="h-[200px] w-[200px] mt-20 relative">
-      <div className="absolute inset-0 flex items-center justify-center bg-[url('/images/light-circle.svg')] bg-no-repeat bg-cover bg-center">
+    <div className="h-[220px] w-[220px] mt-20">
+      <div className="h-[220px] flex items-center justify-center bg-[url('/images/light-circle.svg')] bg-no-repeat">
         <div
-          className={`absolute inset-0 flex items-center justify-center animate-[weaponFadeInOut_6s_linear_infinite]`}
+          className={`flex items-center justify-center animate-[weaponFadeInOut_6s_linear_infinite]`}
         >
           <Image
             src={images[currentImageIndex]}
