@@ -24,8 +24,13 @@ export default function IntroBlock({
   }
 
   return (
-    <div className="w-full h-full bg-[url('/images/background/intro-bg.png')] bg-no-repeat bg-cover bg-bottom bg-white overflow-y-scroll overflow-x-hidden">
+    <div className="w-full h-full bg-[url('/images/background/intro-bg.png')] bg-no-repeat bg-cover bg-bottom bg-white overflow-y-scroll md:overflow-hidden">
       <div className="flex flex-col gap-3 items-center p-3 w-full h-full bg-[url('/images/bits.png')] bg-no-repeat bg-cover bg-right-top">
+        <link
+          rel="preload"
+          as="image"
+          href={`/images/background/question/1.png`}
+        />
         <WeaponBlock />
         <StoryBlock />
         <PlayerBlock
