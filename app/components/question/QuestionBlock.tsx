@@ -66,14 +66,14 @@ export default function QuestionBlock({
             href={`/images/background/question/${option.nextQuestion}.png`}
           />
         ))}
-      <div className="flex flex-col overflow-y-scroll h-full">
+      <div className="flex flex-col overflow-y-scroll md:overflow-hidden h-full">
         <ProgressBlock
           onLeftArrowClick={handlePreQuestion}
           progress={progress}
           chapter={chapter}
         />
         <QuestionDescription description={question?.description || ""} />
-        <div className="overflow-y-scroll">
+        <div className="overflow-y-scroll md:overflow-hidden">
           {questionOptions.map((option) => (
             <Fragment key={option.id}>
               <QuestionOption

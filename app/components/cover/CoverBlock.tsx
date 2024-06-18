@@ -10,7 +10,7 @@ export default function CoverBlock({
   onStartClick: () => void;
 }) {
   return (
-    <div className="w-full h-full bg-[url('/images/background/bg.png')] bg-no-repeat bg-cover bg-right-top overflow-y-scroll overflow-x-hidden">
+    <div className="w-full h-full bg-[url('/images/background/bg.png')] bg-no-repeat bg-cover bg-right-top overflow-y-scroll md:overflow-hidden">
       <div className="mt-[60px] flex flex-col justify-center items-center">
         <MessageBubble />
         <Figure />
