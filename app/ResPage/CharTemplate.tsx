@@ -213,18 +213,6 @@ const CharTemplate = (props: {
   const resBg = "/ResBg.webp";
 
   useEffect(() => {
-    // if (typeof window !== undefined && typeof navigator !== undefined) {
-    // setTimeout(() => {
-    //   convertToPng();
-    //   const agent = navigator?.userAgent;
-    //   const isMobile =
-    //     /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
-    //       agent
-    //     );
-    //   const currrentDev = isMobile ? "Mobile" : "PC";
-    //   setEnv(currrentDev);
-    // }, 100);
-    // }
     setTimeout(() => {
       setIsLoading(false);
     }, 3000);
@@ -245,7 +233,6 @@ const CharTemplate = (props: {
       )}
       {!isLoading && (
         <>
-          {" "}
           <div
             className={clsx("px-8 pb-4 pt-4")}
             ref={ref}

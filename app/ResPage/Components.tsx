@@ -29,24 +29,27 @@ export const Tag = ({
 export const SocicalMediaBtns = ({ className }: { className: string }) => {
   return (
     <div className={className}>
-      <img
-        className="w-[48px] h-[48px] hover:cursor-pointer"
-        src="/resPage/line-logo.png"
-        alt="line"
-        onClick={() => {}}
-      />
-      <img
-        className="w-[48px] h-[48px] hover:cursor-pointer"
-        src="/resPage/ig-logo.png"
-        alt="ig"
-        onClick={() => {}}
-      />
-      <img
-        className="w-[48px] h-[48px] hover:cursor-pointer"
-        src="/resPage/fb-logo.png"
-        alt="fb"
-        onClick={() => {}}
-      />
+      <a href="https://line.me/R/ti/p/@299nzzqi?oat_content=url">
+        <img
+          className="w-[48px] h-[48px] hover:cursor-pointer"
+          src="/resPage/line-logo.png"
+          alt="line"
+        />
+      </a>
+      <a href="https://www.instagram.com/dna.org.tw/">
+        <img
+          className="w-[48px] h-[48px] hover:cursor-pointer"
+          src="/resPage/ig-logo.png"
+          alt="ig"
+        />
+      </a>
+      <a href="https://www.facebook.com/profile.php?id=61552393077480">
+        <img
+          className="w-[48px] h-[48px] hover:cursor-pointer"
+          src="/resPage/fb-logo.png"
+          alt="fb"
+        />
+      </a>
     </div>
   );
 };
