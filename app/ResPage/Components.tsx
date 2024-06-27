@@ -57,7 +57,7 @@ export const SocicalMediaBtns = ({ className }: { className: string }) => {
 export const UtilsBtns = ({ className }: { className: string }) => {
   return (
     <div className={className}>
-      <a href="https://dna.oen.tw/posts/2iSyj0wepP8Mn2Un1OQCKc3k915?locale=zh-TW">
+      <a href="https://dna.oen.tw/posts/2iSyj0wepP8Mn2Un1OQCKc3k915?locale=zh-TW" target="_blank">
         <img
           className="hover:cursor-pointer"
           src="/resPage/checkmore.png"
