@@ -57,11 +57,13 @@ export const SocicalMediaBtns = ({ className }: { className: string }) => {
 export const UtilsBtns = ({ className }: { className: string }) => {
   return (
     <div className={className}>
-      <img
-        className="hover:cursor-pointer"
-        src="/resPage/checkmore.png"
-        alt="checkmore"
-      />
+      <a href="https://dna.oen.tw/posts/2iSyj0wepP8Mn2Un1OQCKc3k915?locale=zh-TW">
+        <img
+          className="hover:cursor-pointer"
+          src="/resPage/checkmore.png"
+          alt="checkmore"
+        />
+      </a>
 
       <Link
         href="https://conf.dna.org.tw/zh-TW/2024"
