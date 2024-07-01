@@ -42,8 +42,8 @@ const charInfo = {
       "不過這樣勇往直前的個性，很容易只看到自己的需求而忽略旁人，固執且沒耐心，不懂的體貼與讚美。甚至覺得自己是對的、不太需要朋友，過度專橫以至於說話傷人，而得不到他人的支持與認同。",
     cardContents: {
       luckyItem: "/resPage/hat.png",
-      partner: "/resPage/char_magican.png",
-      stranger: "/resPage/char_assassin.png",
+      partner: "/resPage/char_knight.png",
+      stranger: "/resPage/char_magican.png ",
     },
   },
   [CharTypeEnum.騎士]: {
@@ -71,7 +71,7 @@ const charInfo = {
     cardContents: {
       luckyItem: "/resPage/libon.png",
       partner: "/resPage/char_magican.png",
-      stranger: "/resPage/char_assassin.png",
+      stranger: "/resPage/char_minstrel.png",
     },
   },
   [CharTypeEnum.魔法師]: {
@@ -92,7 +92,7 @@ const charInfo = {
       "完美主義",
       // "低調",
     ],
-    jobs: ["工程獅", "精算獅", "策略人猿", "會計獅"],
+    jobs: ["工程獅", "精算獅", "策略人猿", "會計獅", "設計獅"],
     desc: "邏輯清晰擅思辨，重細節與數字，喜愛研究並找出有效解方，追求完美與美感。個性龜毛偏好先計劃再行動，常流於空想未執行再自責慚愧，給人悲觀消極又情緒化的印象。",
     benifit:
       "分析型的人邏輯清晰有條理、善長思考與分析，做事經過深思熟慮、謹慎務實，且重視細節與數字，不喜歡無法預測的事情也不愛出風頭。這類型的人通常也是發明者，能給予問題準確有效的解決方案，擁有追求完美與天生的藝術美感。",
@@ -100,8 +100,8 @@ const charInfo = {
       "吹毛求疵，做事前一定要先想個計劃，但又容易想太多沒有行動，或是要求過高（太過理想）但難以做到，進而感到強烈的自慚自愧，自然就給旁人悲觀消極、情緒化的印象。",
     cardContents: {
       luckyItem: "/resPage/cup.png",
-      partner: "/resPage/char_magican.png",
-      stranger: "/resPage/char_assassin.png",
+      partner: "/resPage/char_knight.png",
+      stranger: "/resPage/char_minstrel.png",
     },
   },
   [CharTypeEnum.吟遊詩人]: {
@@ -123,7 +123,7 @@ const charInfo = {
       "因為熱愛探索新想法，也讓他們容易在工作之間跳來跳去，想一次完成很多事情但礙於專注力不夠而失敗。此外，以自己為世界中心、粗線條、輕許諾、愛打岔又變化無常也是要特別留意的缺點，答應別人但是由於記憶差而忘記，久而久之是會惹人厭煩的唷。",
     cardContents: {
       luckyItem: "/resPage/tag.png",
-      partner: "/resPage/char_magican.png",
+      partner: "/resPage/char_knight.png",
       stranger: "/resPage/char_assassin.png",
     },
   },
@@ -353,8 +353,8 @@ const CharTemplate = (props: {
           </div>
           {/* footer Img */}
           {/* <div className="bg-[#0E5A7E] py-8 flex justify-center items-center">
-        <img src="/resPage/footerImg.png" alt="" />
-      </div> */}
+            <img src="/resPage/footerImg.png" alt="" />
+          </div> */}
           <footer className="bg-[#0E5A7E] pb-4 w-full sm:w-[402px] ">
             <div className="mx-auto pt-6 pb-1 px-8">
               <section className="flex justify-center items-center">
