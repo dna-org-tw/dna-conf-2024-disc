@@ -52,7 +52,7 @@
     "options": [
       {
         "id": 1,
-        "description": "靠直覺選那條內心認為對的路(到底是路還是門)",
+        "description": "靠直覺選那條內心認為對的路",
         "nextQuestion": 5
       },
       {
