@@ -11,9 +11,11 @@ export default function IntroBlock({
   onEnterGameClick: () => void;
 }) {
   const [name, setName] = useState<string>("");
+  const [typed, setTyped] = useState<boolean>(false);
 
   function handleNameChange(value: string) {
     setName(value);
+    setTyped(!!value);
   }
 
   function handleEnterGameClick() {
@@ -37,7 +39,11 @@ export default function IntroBlock({
           onNameInputChange={(e) => handleNameChange(e.target.value)}
         />
         <p className="font-bold text-lg">你準備好了嗎？</p>
-        <ColorfulButton href="#" onClick={handleEnterGameClick}>
+        <ColorfulButton
+          href="#"
+          onClick={handleEnterGameClick}
+          disabled={!typed}
+        >
           <p>ENTER GAME</p>
         </ColorfulButton>
       </div>
