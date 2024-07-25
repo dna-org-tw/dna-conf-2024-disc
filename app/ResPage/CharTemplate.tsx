@@ -215,7 +215,7 @@ const CharTemplate = (props: {
   useEffect(() => {
     setTimeout(() => {
       setIsLoading(false);
-    }, 3000);
+    }, 2000);
     return () => {
       localStorage.removeItem("playerName");
     };

@@ -23,7 +23,7 @@ export default function WeaponBlock() {
     <div className="h-[220px] w-[225px] mt-20">
       <div className="h-[220px] flex items-center justify-center bg-[url('/images/light-circle.svg')] bg-no-repeat">
         <div
-          className={`flex items-center justify-center animate-[weaponFadeInOut_6s_linear_infinite]`}
+          className={`flex items-center justify-center animate-[weaponFadeInOut_3s_linear_infinite]`}
         >
           <Image
             src={images[currentImageIndex]}
