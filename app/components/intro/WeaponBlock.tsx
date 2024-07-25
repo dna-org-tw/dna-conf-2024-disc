@@ -14,13 +14,13 @@ export default function WeaponBlock() {
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
-    }, 6000);
+    }, 3000);
 
     return () => clearInterval(timer);
   }, []);
 
   return (
-    <div className="h-[220px] w-[220px] mt-20">
+    <div className="h-[220px] w-[225px] mt-20">
       <div className="h-[220px] flex items-center justify-center bg-[url('/images/light-circle.svg')] bg-no-repeat">
         <div
           className={`flex items-center justify-center animate-[weaponFadeInOut_6s_linear_infinite]`}
