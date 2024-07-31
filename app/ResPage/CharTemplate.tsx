@@ -258,7 +258,7 @@ const CharTemplate = (props: {
                   className="w-full bg-white rounded-md p-1 min-h-[185px]"
                 />
                 <div className="text-white font-bold text-xl flex gap-4 py-1">
-                  <span>Influence</span>
+                  <span>Type</span>
                   <span>{currentCharData.typeName}</span>
                 </div>
               </div>
